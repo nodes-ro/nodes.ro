@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>nodes.ro</title>
+    <meta content="Transformam idei in software. Portofoliu apliatii."
+          name="description">
+    <meta content="nodes.ro, software, dezvoltare, cluj, romania, aplicații, web, portofoliu" name="keywords">
+    <meta content="nodes.ro" name="author">
+    <meta content="index, follow" name="robots">
+
+    <link href="static/styles.css" rel="stylesheet">
+
+    <!-- Preload Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hidden checkbox to control the flip state -->
+    <input id="flip-toggle" type="checkbox"/>
+    <!-- Label that toggles the checkbox when clicked -->
+    <label for="flip-toggle">
+        <div class="card-wrapper">
+            <div class="card">
+                <!-- Front Face -->
+                <div class="card-front">
+                    <div class="overlay"></div>
+                    <div class="button">
+                        <i class="fa-solid fa-repeat"></i>
+                    </div>
+                    <div class="content">
+                        <a href="#modal" style="text-decoration:none;">
+                            <span class="number"><i class="fa-solid fa-circle-nodes"></i> nodes.ro</span>
+                        </a>
+                        <h2>Portfoliu Aplicații</h2>
+                        <p>
+                            Transformăm idei în software <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            de peste 15 de ani.
+                        </p>
+                    </div>
+                </div>
+                <!-- Back Face -->
+                <div class="card-back"
+                     style="background-image: url('{{ url_for('static', filename='bg_back.jpg') }}');">
+                    <!-- Two overlay divs for smooth crossfade transitions -->
+                    <div class="bg-overlay current"></div>
+                    <div class="bg-overlay next"></div>
+
+                    <!-- 32% overlay remains on top of crossfade overlays -->
+                    <div class="overlay"></div>
+                    <div class="button">
+                        <i class="fa-solid fa-repeat"></i>
+                    </div>
+                    <div class="content">
+                        <!-- Project grid with data-bg attributes -->
+                        <div class="project-grid">
+
+                            <a class="project-box"
+
+                               href="https://dealwatch.eu" target="_blank">
+                                dealwatch.eu
+                            </a>
+                            <a class="project-box"
+
+                               href="https://time4all.eu" target="_blank">
+                                time4all.eu
+                            </a>
+                            <a class="project-box"
+
+                               href="https://readyplan.eu" target="_blank">
+                                readyplan.eu
+                            </a>
+                            <a class="project-box"
+                               href="{{ url_for('blog') }}" target="_blank">
+                                <i class="fa-solid fa-angles-right"></i>
+                            </a>
+
+                             <a class="project-box"
+                               href="{{ url_for('blog') }}" target="_blank">
+                               link
+                            </a>
+
+                              <a class="project-box"
+                               href="{{ url_for('blog') }}" target="_blank">
+                               link
+                            </a>
+
+                              <a class="project-box"
+                               href="{{ url_for('blog') }}" target="_blank">
+                               link
+                            </a>
+
+                              <a class="project-box"
+                               href="{{ url_for('blog') }}" target="_blank">
+                               link
+                            </a>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </label>
+
+    <!-- Modal Popup -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
+  <img src="static/logo.jpg" width="140px;">
+              <div style="text-align:left;">
+
+                <section class="portfolio">
+                    <header>
+                        <h3><i class="fa-solid fa-briefcase"></i> Descoperă</h3>
+                    </header>
+                    <div class="portfolio-items">
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span><a href="{{ url_for('blog') }}">Blogul nostru</a> </span>
+                        </div>
+                        <div class="portfolio-item">
+                            <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">
+                                <i class="fas fa-hand-holding-heart"></i> Susține Proiectele Noastre
+                            </a>(revolut.me)
+                        </div>
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-chalkboard-teacher"></i>
+                            <a href="mailto:&#110;&#111;&#100;&#101;&#115;&#46;&#114;&#111;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#46;&#109;&#101;"
+                               style="text-decoration:none;">
+                                <span>Contact: nodes.ro@proton.me</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
