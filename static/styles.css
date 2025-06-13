@@ -90,12 +90,12 @@ body::before {
 }
 
 .card-front {
-  background: url('bg.jpg') center/cover no-repeat;
+  background: url('bg.png') center/cover no-repeat;
   transform: rotateY(0deg);
 }
 
 .card-back {
-  background: url('bg_back.jpg') center/cover no-repeat;
+  background: url('bg_back.png') center/cover no-repeat;
   transform: rotateY(180deg);
   position: relative;
 }
