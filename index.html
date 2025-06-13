@@ -117,29 +117,51 @@
             <img src="static/logo.png" width="140px;">
             <div style="text-align:left;">
 
-                <section class="portfolio">
-                    <header>
-                        <h3><i class="fa-solid fa-briefcase"></i> Descoperă</h3>
-                    </header>
-                    <div class="portfolio-items">
-                        <div class="portfolio-item">
-                            <i class="fa-solid fa-laptop-code"></i>
-                            <span><a href="{{ url_for('blog') }}">Blogul nostru</a> </span>
-                        </div>
-                        <div class="portfolio-item">
-                            <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">
-                                <i class="fas fa-hand-holding-heart"></i> Susține Proiectele Noastre
-                            </a>(revolut.me)
-                        </div>
-                        <div class="portfolio-item">
-                            <i class="fa-solid fa-chalkboard-teacher"></i>
-                            <a href="mailto:&#110;&#111;&#100;&#101;&#115;&#46;&#114;&#111;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#46;&#109;&#101;"
-                               style="text-decoration:none;">
-                                <span>Contact: nodes.ro@proton.me</span>
-                            </a>
-                        </div>
-                    </div>
-                </section>
+               <section class="portfolio">
+    <header>
+        <h3><i class="fa-solid fa-briefcase"></i> Descoperă</h3>
+    </header>
+    <div class="portfolio-items">
+        <div class="portfolio-item">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span><a href="{{ url_for('blog') }}" style="text-decoration:none;">Explorează Blogul Nostru</a></span>
+        </div>
+
+        <div class="portfolio-item">
+            <i class="fas fa-hand-holding-heart"></i>
+            <span>
+                <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">
+                    Susține Proiectele Noastre
+                </a>
+                <small style="font-size: 0.8em; color: gray;">(via Revolut)</small>
+            </span>
+        </div>
+
+        <div class="portfolio-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>
+                <a href="mailto:nodes.ro@proton.me" style="text-decoration:none;">
+                    Contactează-ne: nodes.ro@proton.me
+                </a>
+            </span>
+        </div>
+
+      <div class="portfolio-item">
+    <i class="fa-solid fa-share-nodes"></i> Social links:
+    <span style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+
+        <a href="https://www.facebook.com/profile.php?id=61573676917525" target="_blank" style="text-decoration: none;">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://github.com/nodes-ro" target="_blank" style="text-decoration: none;">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    </span>
+</div>
+
+    </div>
+</section>
+
             </div>
         </div>
     </div>
