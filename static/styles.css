@@ -1,71 +1,73 @@
 /* ==========================================================================
-   Global Variables & Base Styles
+   :root & General Styles
    ========================================================================== */
 :root {
   --heading-font: 'Montserrat', sans-serif;
-  --body-font:    'Roboto',    sans-serif;
-  --bg-color:     #27445D;
-  --fg-color:     #EFE9D5;
-  --accent-start: #497D74;
-  --accent-end:   #71BBB2;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --body-font: 'Roboto', sans-serif;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  /* use fill-available for mobile browsers (iPhone) */
-  height: -webkit-fill-available;
-  min-height: 100vh;
-  overflow: auto;
+  background-color: #27445D;
+  overflow: hidden;
   font-family: var(--heading-font);
-  background: var(--bg-color) url('bg.jpg') repeat center/cover;
-  position: relative;
+
 }
 
-/* subtle page noise overlay */
 body::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(0,0,0,0.02) 0,
-    rgba(0,0,0,0.02) 1px,
-    transparent       1px,
-    transparent       5px
-  );
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('bg.jpg');
+  background-repeat: repeat;
+  opacity: 0.03; /* Adjust transparency */
+  pointer-events: none; /* Makes sure it doesn't block interaction */
 }
 
 /* ==========================================================================
-   Container & 3D Card
+   Container & Tooltip
    ========================================================================== */
 .container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   perspective: 1500px;
 }
 
-.card-wrapper {
-  width: 1024px;
-  height: 600px;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
-}
 
+
+/* ==========================================================================
+   Flip Toggle & Card Wrapper
+   ========================================================================== */
 #flip-toggle {
   display: none;
 }
+
+.card-wrapper {
+  position: relative;
+  width: 1024px;
+  height: 600px;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+
 #flip-toggle:checked ~ label .card-wrapper {
   transform: rotateY(180deg);
 }
 
+/* ==========================================================================
+   Card Faces
+   ========================================================================== */
 .card {
   position: relative;
   width: 100%;
@@ -76,83 +78,103 @@ body::before {
 .card-front,
 .card-back {
   position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backface-visibility: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .card-front {
   background: url('bg.jpg') center/cover no-repeat;
+  transform: rotateY(0deg);
 }
 
 .card-back {
   background: url('bg_back.jpg') center/cover no-repeat;
   transform: rotateY(180deg);
+  position: relative;
 }
 
-/* overlay used in JS crossfade */
+/* ==========================================================================
+   Background Overlays for Crossfade (Behind the fixed 32% overlay)
+   ========================================================================== */
 .bg-overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 1;
+  opacity: 0;  /* Overlays start transparent */
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1; /* Behind the fixed bottom overlay */
 }
 
-/* fixed bottom tint + content zone */
+/* Designated classes for current/next are used in JavaScript */
+.bg-overlay.current { }
+.bg-overlay.next { }
+
+/* ==========================================================================
+   Fixed 32% Bottom Overlay & Content
+   ========================================================================== */
 .card .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 30%;
-  background: rgba(39,68,93,0.9);
-  box-shadow: 0 0 30px rgba(0,0,0,0.7);
-  z-index: 3;
+  background: rgba(39, 68, 93, 0.9);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  z-index: 3; /* Always on top of background overlays */
 }
 
 .card .content {
   position: absolute;
   bottom: 30px;
   left: 30px;
+  color: #EFE9D5;
+  z-index: 4; /* Above the bottom overlay */
   max-width: 70%;
-  color: var(--fg-color);
-  z-index: 4;
-  font-family: var(--heading-font);
 }
+
 .card .content .number {
-  font: 20px var(--heading-font) bold;
-  color: var(--accent-end);
+  font: 20px var(--heading-font);
+  color: #71BBB2;
+  font-weight: bold;
 }
+
 .card .content h2 {
   font: bold 32px var(--heading-font);
   margin: 10px 0;
+  color: #EFE9D5;
 }
+
 .card .content p {
   font: 16px/1.4 var(--heading-font);
-  opacity: .9;
+  opacity: 0.9;
 }
 
-/* gradient glowing icon */
 .glowing-lightbulb {
   font-size: 24px;
-  background: linear-gradient(45deg, var(--accent-start), var(--accent-end));
+  /* apply your gradient to the text */
+  background: linear-gradient(45deg, #497D74, #71BBB2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter:
-    drop-shadow(0 0 8px rgba(113,187,178,0.8))
-    drop-shadow(0 0 16px rgba(113,187,178,0.6));
+
+  /* add a subtle matching glow */
+  filter: drop-shadow(0 0 8px rgba(113, 187, 178, 0.8))
+          drop-shadow(0 0 16px rgba(113, 187, 178, 0.6));
 }
 
+
 /* ==========================================================================
-   Project Grid: horizontal scroll + snap
+   Project Grid & Boxes
    ========================================================================== */
 .project-grid {
   display: flex;
@@ -160,143 +182,159 @@ body::before {
   width: 100%;
   padding: 1rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  position: relative;
+  scroll-snap-type: x mandatory;
   z-index: 1;
+  position: relative;
+  scroll-behavior: smooth;
 }
 
-/* custom scrollbar thumb */
 .project-grid::-webkit-scrollbar {
   height: 12px;
 }
 .project-grid::-webkit-scrollbar-thumb {
   background: rgba(113,187,178,0.5);
   border-radius: 6px;
-  cursor: grab;
-}
-.project-grid:active::-webkit-scrollbar-thumb {
-  cursor: grabbing;
 }
 
 .project-box {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  position: relative;
-  padding: 1.75rem;
-  border-radius: 18px;
-  background: rgba(0,0,0,0.4);
-  color: var(--fg-color);
-  font-family: var(--heading-font);
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  transition: background .3s;
+  padding:1.75rem; border-radius:18px;
+  background:rgba(0,0,0,.4);
+  color:var(--fg); font-weight:bold;
+  text-decoration:none; transition:.3s;
+  font-family: var(--font-h); text-align:center;
 }
 .project-box:hover {
-  background: rgba(113,187,178,0.4);
-}
-
-/* tooltip */
-.project-box::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translate(-50%, 8px);
-  padding: 4px 8px;
-  background: rgba(0,0,0,0.8);
-  color: #fff;
-  font-size: 12px;
-  border-radius: 4px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s ease, transform .2s ease;
-  z-index: 5;
-}
-.project-box::before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translate(-50%, 4px);
-  border: 6px solid transparent;
-  border-top-color: rgba(0,0,0,0.8);
-  opacity: 0;
-  transition: opacity .2s ease, transform .2s ease;
-  z-index: 5;
-}
-.project-box:hover::after,
-.project-box:hover::before {
-  opacity: .85;
-  transform: translate(-50%, 0);
+  background:rgba(113,187,178,.4);
 }
 
 /* ==========================================================================
-   Modal & Button Styles
+   Modal Styles
    ========================================================================== */
 .modal {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
+
 .modal:target {
   display: flex;
 }
+
 .modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 90%;
   max-width: 500px;
+  width: 90%;
   text-align: center;
   position: relative;
 }
-.modal-close,
-.button {
+
+.modal-close {
   position: absolute;
+  top: -20px;
+  right: -20px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(45deg, var(--accent-start), var(--accent-end));
+  background: linear-gradient(45deg, #497D74, #71BBB2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(113,187,178,0.4);
-  z-index: 1001;
-}
-.modal-close {
-  top: -20px;
-  right: -20px;
+  box-shadow: 0 4px 10px rgba(113, 187, 178, 0.4);
+  text-decoration: none;
   color: #fff;
   font-size: 24px;
-  text-decoration: none;
-}
-.button {
-  bottom: 30px;
-  right: 30px;
 }
 
 /* ==========================================================================
-   Responsive (<= 768px)
+   Button Styles
    ========================================================================== */
+.button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #497D74, #71BBB2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(113, 187, 178, 0.4);
+  z-index:999;
+}
+
+/* ==========================================================================
+   Responsive & Scrollbar Behavior
+   ========================================================================== */
+
 @media (max-width: 768px) {
-  body { overflow: hidden; }
-  .container { height: 100vh; overflow-y: auto; }
-  .card-wrapper { width: 90vw; height: 70vh; }
+  body {
+    overflow: hidden;
+  }
+  .container {
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+/* ==========================================================================
+   Portfolio Items
+   ========================================================================== */
+.portfolio-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.portfolio-item {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+  .container {
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .card-wrapper {
+    width: 90vw;
+    height: 70vh;
+  }
   .card .content {
     bottom: 20px;
     left: 20px;
   }
-  .card .content h2 { font-size: 24px; }
-  .card .content p  { font-size: 14px; }
+  .card .content h2 {
+    font-size: 24px;
+  }
+  .card .content p {
+    font-size: 14px;
+  }
   .project-box {
     padding: 1rem;
     font-size: 14px;
@@ -305,13 +343,11 @@ body::before {
     max-width: 90%;
     padding: 1rem;
   }
-  .modal-close,
-  .button {
+  .button, .modal-close {
     width: 40px;
     height: 40px;
   }
-  .modal-close i,
-  .button i {
+  .button i, .modal-close i {
     font-size: 18px;
   }
 }
