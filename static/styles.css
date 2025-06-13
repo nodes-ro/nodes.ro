@@ -161,7 +161,7 @@ body::before {
 }
 
 .glowing-lightbulb {
-  font-size: 24px;
+  font-size: 20px;
   /* apply your gradient to the text */
   background: linear-gradient(45deg, #497D74, #71BBB2);
   -webkit-background-clip: text;
