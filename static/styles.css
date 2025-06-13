@@ -147,6 +147,29 @@ body::before {
   font: 20px var(--heading-font);
   color: #71BBB2;
   font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.card .content .number::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #71BBB2;
+  transition: width 0.3s ease;
+}
+
+.card .content .number:hover {
+  color: #50BBB2;
+}
+
+.card .content .number:hover::after {
+  width: 100%;
 }
 
 .card .content h2 {
