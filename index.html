@@ -65,42 +65,42 @@
                     <div class="content">
                         <!-- Project grid with data-bg attributes -->
                         <div class="project-grid">
-                            <a class="project-box"
-                               href="https://dealwatch.eu" target="_blank">
-                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> <em>Smart Price
-                                Monitoring</em>
-                            </a>
-                            <a class="project-box"
 
-                               href="https://time4all.eu" target="_blank">
-                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> <em>Plan Meetings Across
-                                Time Zones </em>
-                            </a>
                             <a class="project-box"
-
-                               href="https://readyplan.eu" target="_blank">
-                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> Prepare And Build Your
-                                Emergency Plan
-                            </a>
-                            <a class="project-box"
-                               href="{{ url_for('blog') }}" target="_blank">
-                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> Ignite Creativity By Sharing
-                                Ideas
+                               data-modal-open
+                               data-modal-target="modal-webapps"
+                               href="#modal-webapps">
+                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                                <em>Web Applications</em>
                             </a>
 
                             <a class="project-box"
-                               href="{{ url_for('blog') }}" target="_blank">
-                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> Program Builder For Your Event
-                            </a>
-
-                            <a class="project-box"
-                               href="{{ url_for('blog') }}" target="_blank">
-                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> Create Your Own Custom Lottery
+                               data-modal-open
+                               data-modal-target="modal-desktopapps"
+                               href="#modal-desktopapps">
+                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                                <em>Desktop Applications</em>
                             </a>
 
                             <a class="project-box"
                                href="https://botacatalin.github.io/Blog/" target="_blank">
-                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> Our Blog With Amazing Articles
+                                <i class="fa-solid fa-external-link"></i> Our Blog With Amazing Articles
+                            </a>
+
+                            <a class="project-box"
+                               data-modal-open
+                               data-modal-target="modal-embedded"
+                               href="#modal-embedded">
+                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                                <em>Embedded Projects</em>
+                            </a>
+
+                            <a class="project-box"
+                               data-modal-open
+                               data-modal-target="modal-ai"
+                               href="#modal-ai">
+                                <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                                <em>AI &amp; Automations</em>
                             </a>
 
                         </div>
@@ -110,6 +110,129 @@
         </div>
     </label>
 
+    <!-- AI modal -->
+    <div class="modal" id="modal-ai">
+        <div class="modal-content">
+            <a class="modal-close"
+               data-modal-close
+               data-modal-target="modal-ai"
+               href="#">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+            <h2>AI &amp; Automations</h2>
+            <p>AI &amp; Automations</p>
+            <div class="portfolio-item">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Embedded Projects Modal -->
+    <div class="modal" id="modal-embedded">
+        <div class="modal-content">
+            <a class="modal-close"
+               data-modal-close
+               data-modal-target="modal-embedded"
+               href="#">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+            <h2>Embedded Projects</h2>
+            <p>
+                Embedded Projects
+            </p>
+            <div class="portfolio-item">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <!--modal Desktop Applications -->
+    <div class="modal" id="modal-desktopapps">
+        <div class="modal-content">
+            <a class="modal-close" data-modal-close
+               data-modal-target="modal-desktopapps"
+               href="#">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+
+            <!-- Desktop Applications content -->
+            <h2>Desktop Applications</h2>
+            <p>
+                Desktop Applications
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- modal Web Applications -->
+    <div class="modal" id="modal-webapps">
+        <div class="modal-content">
+            <a class="modal-close" data-modal-close
+               data-modal-target="modal-webapps"
+               href="#">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+
+            <!-- Content specific to Smart Price Monitoring -->
+            <h2>Web Applications</h2>
+            <p>
+                Web Applications - Open Source
+            </p>
+            <ul style="list-style: none;">
+                <li>
+                    <div class="portfolio-item">
+                        <a
+                                href="https://time4all.eu" target="_blank">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            Plan Meetings Across Time Zones
+                        </a>
+                    </div>
+
+                <li>
+                    <div class="portfolio-item">
+                        <a
+                                href="https://readyplan.eu" target="_blank">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            Prepare And Build Your Emergency Plan
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="portfolio-item">
+                        <a
+                                href="{{ url_for('blog') }}" target="_blank">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            Ignite Creativity By Sharing Ideas
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="portfolio-item">
+                        <a
+                                href="{{ url_for('blog') }}" target="_blank">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            Program Builder For Your Event
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="portfolio-item">
+                        <a
+                                href="{{ url_for('blog') }}" target="_blank">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            Create Your Own Custom Lottery
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
     <!-- Modal Popup -->
     <div class="modal" id="modal">
         <div class="modal-content">
@@ -117,50 +240,51 @@
             <img src="static/logo.png" width="140px;">
             <div style="text-align:left;">
 
-               <section class="portfolio">
-    <header>
-        <h3><i class="fa-solid fa-briefcase"></i> Descoperă</h3>
-    </header>
-    <div class="portfolio-items">
-        <div class="portfolio-item">
-            <i class="fa-solid fa-laptop-code"></i>
-            <span><a href="{{ url_for('blog') }}" style="text-decoration:none;">Explorează Blogul Nostru</a></span>
-        </div>
+                <section class="portfolio">
+                    <header>
+                        <h3><i class="fa-solid fa-briefcase"></i> Descoperă</h3>
+                    </header>
+                    <div class="portfolio-items">
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span><a href="{{ url_for('blog') }}"
+                                     style="text-decoration:none;">Explorează Blogul Nostru</a></span>
+                        </div>
 
-        <div class="portfolio-item">
-            <i class="fas fa-hand-holding-heart"></i>
-            <span>
+                        <div class="portfolio-item">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>
                 <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">
                     Susține Proiectele Noastre
                 </a>
                 <small style="font-size: 0.8em; color: gray;">(via Revolut)</small>
             </span>
-        </div>
+                        </div>
 
-        <div class="portfolio-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span>
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>
                 <a href="mailto:nodes.ro@proton.me" style="text-decoration:none;">
                     Contactează-ne: nodes.ro@proton.me
                 </a>
             </span>
-        </div>
+                        </div>
 
-      <div class="portfolio-item">
-    <i class="fa-solid fa-share-nodes"></i> Social links:
-    <span style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-share-nodes"></i> Social links:
+                            <span style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
 
-        <a href="https://www.facebook.com/profile.php?id=61573676917525" target="_blank" style="text-decoration: none;">
+        <a href="https://www.facebook.com/profile.php?id=61573676917525" style="text-decoration: none;" target="_blank">
             <i class="fab fa-facebook"></i> Facebook
         </a>
-        <a href="https://github.com/nodes-ro" target="_blank" style="text-decoration: none;">
+        <a href="https://github.com/nodes-ro" style="text-decoration: none;" target="_blank">
             <i class="fab fa-github"></i> GitHub
         </a>
     </span>
-</div>
+                        </div>
 
-    </div>
-</section>
+                    </div>
+                </section>
 
             </div>
         </div>
