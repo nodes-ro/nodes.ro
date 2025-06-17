@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>nodes.ro</title>
-    <meta content="Transformam idei in software. Portofoliu apliatii."
-          name="description">
+    <meta content="Transformam idei in software. Portofoliu apliatii." name="description">
     <meta content="nodes.ro, software, dezvoltare, cluj, romania, aplicații, web, portofoliu" name="keywords">
     <meta content="nodes.ro" name="author">
     <meta content="index, follow" name="robots">
@@ -15,8 +14,7 @@
     <!-- Preload Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -45,64 +43,39 @@
                         </a>
                         <h2>Portfoliu Aplicații</h2>
                         <p>
-                            Transformăm idei în software <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
-                            de peste 15 de ani.
+                            Transformăm idei în software <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> de peste 15 de ani.
                         </p>
                     </div>
                 </div>
                 <!-- Back Face -->
-                <div class="card-back"
-                     style="background-image: url('{{ url_for('static', filename='bg_back.jpg') }}');">
-                    <!-- Two overlay divs for smooth crossfade transitions -->
+                <div class="card-back" style="background-image: url('{{ url_for('static', filename='bg_back.jpg') }}');">
                     <div class="bg-overlay current"></div>
                     <div class="bg-overlay next"></div>
-
-                    <!-- 32% overlay remains on top of crossfade overlays -->
                     <div class="overlay"></div>
                     <div class="button">
                         <i class="fa-solid fa-repeat"></i>
                     </div>
                     <div class="content">
-                        <!-- Project grid with data-bg attributes -->
                         <div class="project-grid">
-
-                            <a class="project-box"
-                               data-modal-open
-                               data-modal-target="modal-webapps"
-                               href="#modal-webapps">
+                            <a class="project-box" data-modal-open data-modal-target="modal-webapps" href="#modal-webapps">
                                 <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
                                 <em>Web Applications</em>
                             </a>
-
-                            <a class="project-box"
-                               data-modal-open
-                               data-modal-target="modal-desktopapps"
-                               href="#modal-desktopapps">
+                            <a class="project-box" data-modal-open data-modal-target="modal-desktopapps" href="#modal-desktopapps">
                                 <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
                                 <em>Desktop Applications</em>
                             </a>
-
-                            <a class="project-box"
-                               href="https://botacatalin.github.io/Blog/" target="_blank">
+                            <a class="project-box" href="https://botacatalin.github.io/Blog/" target="_blank">
                                 <i class="fa-solid fa-external-link"></i> Our Blog With Amazing Articles
                             </a>
-
-                            <a class="project-box"
-                               data-modal-open
-                               data-modal-target="modal-embedded"
-                               href="#modal-embedded">
+                            <a class="project-box" data-modal-open data-modal-target="modal-embedded" href="#modal-embedded">
                                 <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
                                 <em>Embedded Projects</em>
                             </a>
-
-                            <a class="project-box"
-                               data-modal-open
-                               data-modal-target="modal-ai"
-                               href="#modal-ai">
+                            <a class="project-box" data-modal-open data-modal-target="modal-ai" href="#modal-ai">
                                 <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
                                 <em>AI &amp; Automations</em>
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -110,136 +83,12 @@
         </div>
     </label>
 
-    <!-- AI modal -->
-    <div class="modal" id="modal-ai">
-        <div class="modal-content">
-            <a class="modal-close"
-               data-modal-close
-               data-modal-target="modal-ai"
-               href="#">
-                <i class="fa-solid fa-xmark"></i>
-            </a>
-            <h2>AI &amp; Automations</h2>
-            <p>AI &amp; Automations</p>
-            <div class="portfolio-item">
-                <i class="fa-solid fa-brain"></i> Stay tuned for our next wave of innovations.
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Embedded Projects Modal -->
-    <div class="modal" id="modal-embedded">
-        <div class="modal-content">
-            <a class="modal-close"
-               data-modal-close
-               data-modal-target="modal-embedded"
-               href="#">
-                <i class="fa-solid fa-xmark"></i>
-            </a>
-            <h2>Embedded Projects</h2>
-            <p>
-                Embedded Projects
-            </p>
-            <div class="portfolio-item">
-                <i class="fa-solid fa-robot"></i> Stay tuned for our next wave of innovations.
-            </div>
-        </div>
-    </div>
-
-
-    <!--modal Desktop Applications -->
-    <div class="modal" id="modal-desktopapps">
-        <div class="modal-content">
-            <a class="modal-close" data-modal-close
-               data-modal-target="modal-desktopapps"
-               href="#">
-                <i class="fa-solid fa-xmark"></i>
-            </a>
-
-            <!-- Desktop Applications content -->
-            <h2>Desktop Applications</h2>
-            <p>
-                Desktop Applications
-            </p>
-
-        </div>
-    </div>
-
-
-    <!-- modal Web Applications -->
-    <div class="modal" id="modal-webapps">
-        <div class="modal-content">
-            <a class="modal-close" data-modal-close
-               data-modal-target="modal-webapps"
-               href="#">
-                <i class="fa-solid fa-xmark"></i>
-            </a>
-
-            <!-- Content specific to Smart Price Monitoring -->
-            <h2>Web Applications</h2>
-            <p>
-                Web Applications - Open Source
-            </p>
-            <ul style="list-style: none;">
-                <li>
-                    <div class="portfolio-item">
-                        <a
-                                href="https://time4all.eu" target="_blank">
-                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
-                            Plan Meetings Across Time Zones
-                        </a>
-                    </div>
-
-                <li>
-                    <div class="portfolio-item">
-                        <a
-                                href="https://readyplan.eu" target="_blank">
-                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
-                            Prepare And Build Your Emergency Plan
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="portfolio-item">
-                        <a
-                                href="https://nodes-ro.github.io/ideas/" target="_blank">
-                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
-                            Ignite Creativity By Sharing Ideas
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="portfolio-item">
-                        <a
-                                href="https://nodes-ro.github.io/ProgramBuilder/" target="_blank">
-                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
-                            Program Builder For Your Event
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="portfolio-item">
-                        <a
-                                href="{{ url_for('blog') }}" target="_blank">
-                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
-                            Create Your Own Custom Lottery
-                        </a>
-                    </div>
-                </li>
-            </ul>
-
-
-        </div>
-    </div>
-
-    <!-- Modal Popup -->
+    <!-- Main Modal Popup -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
-            <img src="static/logo.png" width="140px;">
+            <img src="static/logo.png" width="140px;" alt="nodes.ro logo">
             <div style="text-align:left;">
-
                 <section class="portfolio">
                     <header>
                         <h3><i class="fa-solid fa-briefcase"></i> Descoperă</h3>
@@ -247,45 +96,130 @@
                     <div class="portfolio-items">
                         <div class="portfolio-item">
                             <i class="fa-solid fa-laptop-code"></i>
-                            <span><a href="{{ url_for('blog') }}"
-                                     style="text-decoration:none;">Explorează Blogul Nostru</a></span>
+                            <span><a href="{{ url_for('blog') }}" style="text-decoration:none;">Explorează Blogul Nostru</a></span>
                         </div>
-
                         <div class="portfolio-item">
                             <i class="fas fa-hand-holding-heart"></i>
                             <span>
-                <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">
-                    Susține Proiectele Noastre
-                </a>
-                <small style="font-size: 0.8em; color: gray;">(via Revolut)</small>
-            </span>
+                                <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">Susține Proiectele Noastre</a>
+                                <small style="font-size: 0.8em; color: gray;">(via Revolut)</small>
+                            </span>
                         </div>
-
                         <div class="portfolio-item">
                             <i class="fa-solid fa-envelope"></i>
                             <span>
-                <a href="mailto:nodes.ro@proton.me" style="text-decoration:none;">
-                    Contactează-ne: nodes.ro@proton.me
-                </a>
-            </span>
+                                <a href="mailto:nodes.ro@proton.me" style="text-decoration:none;">Contactează-ne: nodes.ro@proton.me</a>
+                            </span>
                         </div>
-
                         <div class="portfolio-item">
                             <i class="fa-solid fa-share-nodes"></i> Social links:
                             <span style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-
-        <a href="https://www.facebook.com/profile.php?id=61573676917525" style="text-decoration: none;" target="_blank">
-            <i class="fab fa-facebook"></i> Facebook
-        </a>
-        <a href="https://github.com/nodes-ro" style="text-decoration: none;" target="_blank">
-            <i class="fab fa-github"></i> GitHub
-        </a>
-    </span>
+                                <a href="https://www.facebook.com/profile.php?id=61573676917525" style="text-decoration: none;" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                                <a href="https://github.com/nodes-ro" style="text-decoration: none;" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            </span>
                         </div>
-
                     </div>
                 </section>
+            </div>
+        </div>
+    </div>
 
+    <!-- AI & Automations Modal -->
+    <div class="modal" id="modal-ai">
+        <div class="modal-content">
+            <a class="modal-close" data-modal-close data-modal-target="modal-ai" href="#"><i class="fa-solid fa-xmark"></i></a>
+            <img src="static/logo.png" width="140px;" alt="nodes.ro logo">
+            <div style="text-align:left;">
+                <section class="portfolio">
+                    <header>
+                        <h3><i class="fa-solid fa-brain"></i> AI &amp; Automations</h3>
+                    </header>
+                    <div class="portfolio-items">
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-robot"></i>
+                            Stay tuned for our next wave of innovations.
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embedded Projects Modal -->
+    <div class="modal" id="modal-embedded">
+        <div class="modal-content">
+            <a class="modal-close" data-modal-close data-modal-target="modal-embedded" href="#"><i class="fa-solid fa-xmark"></i></a>
+            <img src="static/logo.png" width="140px;" alt="nodes.ro logo">
+            <div style="text-align:left;">
+                <section class="portfolio">
+                    <header>
+                        <h3><i class="fa-solid fa-microchip"></i> Embedded Projects</h3>
+                    </header>
+                    <div class="portfolio-items">
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-robot"></i>
+                            Stay tuned for our next wave of innovations.
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Applications Modal -->
+    <div class="modal" id="modal-desktopapps">
+        <div class="modal-content">
+            <a class="modal-close" data-modal-close data-modal-target="modal-desktopapps" href="#"><i class="fa-solid fa-xmark"></i></a>
+            <img src="static/logo.png" width="140px;" alt="nodes.ro logo">
+            <div style="text-align:left;">
+                <section class="portfolio">
+                    <header>
+                        <h3><i class="fa-solid fa-desktop"></i> Desktop Applications</h3>
+                    </header>
+                    <div class="portfolio-items">
+                        <div class="portfolio-item">
+                            <i class="fa-solid fa-laptop"></i>
+                            Stay tuned for upcoming desktop releases.
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Web Applications Modal -->
+    <div class="modal" id="modal-webapps">
+        <div class="modal-content">
+            <a class="modal-close" data-modal-close data-modal-target="modal-webapps" href="#"><i class="fa-solid fa-xmark"></i></a>
+            <img src="static/logo.png" width="140px;" alt="nodes.ro logo">
+            <div style="text-align:left;">
+                <section class="portfolio">
+                    <header>
+                        <h3><i class="fa-solid fa-globe"></i> Web Applications</h3>
+                    </header>
+                    <div class="portfolio-items">
+                        <div class="portfolio-item">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            <span><a href="https://time4all.eu" target="_blank" style="text-decoration:none;">Plan Meetings Across Time Zones</a></span>
+                        </div>
+                        <div class="portfolio-item">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            <span><a href="https://readyplan.eu" target="_blank" style="text-decoration:none;">Prepare And Build Your Emergency Plan</a></span>
+                        </div>
+                        <div class="portfolio-item">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            <span><a href="https://nodes-ro.github.io/ideas/" target="_blank" style="text-decoration:none;">Ignite Creativity By Sharing Ideas</a></span>
+                        </div>
+                        <div class="portfolio-item">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            <span><a href="https://nodes-ro.github.io/ProgramBuilder/" target="_blank" style="text-decoration:none;">Program Builder For Your Event</a></span>
+                        </div>
+                        <div class="portfolio-item">
+                            <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+                            <span><a href="{{ url_for('blog') }}" target="_blank" style="text-decoration:none;">Create Your Own Custom Lottery</a></span>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
