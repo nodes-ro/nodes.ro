@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "category": "Web apps",
+      "project_name": "Time4All",
+      "short_description": "Plan meetings across time zones.",
+      "github_url": null,
+      "project_url": "https://time4all.eu"
+    },
+    {
+      "category": "Web apps",
+      "project_name": "ReadyPlan",
+      "short_description": "Prepare and build your emergency plan.",
+      "github_url": null,
+      "project_url": "https://readyplan.eu"
+    },
+    {
+      "category": "Web apps",
+      "project_name": "Ideas",
+      "short_description": "Ignite creativity by sharing ideas.",
+      "github_url": "https://github.com/nodes-ro/ideas",
+      "project_url": "https://nodes-ro.github.io/ideas/"
+    },
+    {
+      "category": "Web apps",
+      "project_name": "ProgramBuilder",
+      "short_description": "Program builder for events.",
+      "github_url": "https://github.com/nodes-ro/ProgramBuilder",
+      "project_url": "https://nodes-ro.github.io/ProgramBuilder/"
+    },
+    {
+      "category": "Web apps",
+      "project_name": "Custom Lottery",
+      "short_description": "Create your own custom lottery.",
+      "github_url": null,
+      "project_url": null
+    },
+    {
+      "category": "Desktop app",
+      "project_name": "Eclipse RCP Application",
+      "short_description": "Desktop app showcase built with Eclipse RCP.",
+      "github_url": "https://github.com/nodes-ro/nodes-rcp-desktop",
+      "project_url": "https://nodes-ro.github.io/nodes-rcp-desktop/"
+    },
+    {
+      "category": "Embedded",
+      "project_name": "Upcoming Embedded Project",
+      "short_description": "Stay tuned for our next wave of innovations.",
+      "github_url": null,
+      "project_url": null
+    },
+    {
+      "category": "Ai & Automations",
+      "project_name": "Upcoming AI Project",
+      "short_description": "Stay tuned for our next wave of innovations.",
+      "github_url": null,
+      "project_url": null
+    },
+    {
+      "category": "Books",
+      "project_name": "(Add your book project)",
+      "short_description": "Placeholder entry for future books.",
+      "github_url": null,
+      "project_url": null
+    }
+  ]
+}
