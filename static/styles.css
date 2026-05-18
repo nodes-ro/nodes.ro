@@ -113,6 +113,8 @@ body::before {
   right: 18px;
   bottom: 84px;
   max-width: none !important;
+  top: 18px;
+  display: flex;
 }
 
 .card .content .number {
@@ -134,7 +136,8 @@ body::before {
 
 .projects-overview {
   width: 100%;
-  min-height: 280px;
+  height: 100%;
+  min-height: 0;
   background: rgba(10, 18, 28, 0.75);
   border: 1px solid rgba(113, 187, 178, 0.42);
   border-radius: 16px;
@@ -161,6 +164,9 @@ body::before {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+  overflow: auto;
+  min-height: 0;
+  padding-right: 4px;
 }
 
 .window-toolbar {
@@ -362,7 +368,7 @@ body::before {
 }
 
 @media (max-width: 768px) {
-  .projects-overview {height: 56%; min-height: 210px; padding: 10px;}
+  .projects-overview {height: 100%; min-height: 0; padding: 10px;}
   .category-grid {grid-template-columns: 1fr;}
 }
 
@@ -379,9 +385,11 @@ img {
 
 
 .card-back .button {
-  right: 30px;
+  top: 18px;
+  bottom: auto;
+  right: 18px;
   left: auto;
-  z-index: 20;
+  z-index: 50;
 }
 
 .card-back .overlay {

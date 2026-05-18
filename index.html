@@ -190,15 +190,32 @@
     attachProjectHandlers();
   }
 
+  function clearHash() {
+    if (!window.location.hash) return;
+    history.replaceState(null, document.title, window.location.pathname + window.location.search);
+  }
+
   function closeModal(event) {
-    event.preventDefault();
-    if (window.location.hash) {
-      history.pushState('', document.title, window.location.pathname + window.location.search);
-    }
+    if (event) event.preventDefault();
+    clearHash();
   }
 
   document.querySelectorAll('[data-close-modal]').forEach(closeBtn => {
     closeBtn.addEventListener('click', closeModal);
+  });
+
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', event => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && window.location.hash.startsWith('#modal')) {
+      closeModal();
+    }
   });
 
   fetch('static/projects.json')
