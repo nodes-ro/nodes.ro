@@ -52,8 +52,14 @@
                     <div class="content content-wide">
                         <div class="projects-overview">
                             <div class="overview-header">
-                                <h3><i class="fa-solid fa-diagram-project"></i> Explore Projects</h3>
+                                <h3><i class="fa-solid fa-desktop"></i> Project Explorer</h3>
                                 <span id="project-total" class="overview-pill">Loading...</span>
+                            </div>
+                            <div class="window-toolbar">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="toolbar-title">nodes.ro / projects</span>
                             </div>
                             <div id="category-grid" class="category-grid" aria-live="polite"></div>
                         </div>
@@ -154,24 +160,26 @@
   function renderOverview(projects) {
     projectTotal.textContent = `${projects.length} projects`;
     categoryGrid.innerHTML = projects.map((project, idx) => `
-      <div class="category-card-wrap">
-        <a class="category-card" href="#modal-project-details" data-project-id="${idx}">
-          <div class="category-card-head">
-            <strong><i class="fa-solid fa-cube"></i> ${safe(project.project_name, 'Unnamed project')}</strong>
-            <span><i class="fa-solid fa-circle-info"></i></span>
-          </div>
-          <p class="project-summary">${safe(project.short_description)}</p>
-        </a>
-      </div>
+      <a class="category-card" href="#modal-project-details" data-project-id="${idx}">
+        <div class="window-head">
+          <span class="window-title"><i class="fa-solid fa-window-maximize"></i> ${safe(project.project_name, 'Unnamed project')}</span>
+          <span class="window-open"><i class="fa-solid fa-up-right-from-square"></i></span>
+        </div>
+        <p class="project-summary">${safe(project.short_description)}</p>
+      </a>
     `).join('');
     attachProjectHandlers();
   }
 
+  function closeModal(event) {
+    event.preventDefault();
+    if (window.location.hash) {
+      history.pushState('', document.title, window.location.pathname + window.location.search);
+    }
+  }
+
   document.querySelectorAll('.modal-close').forEach(closeBtn => {
-    closeBtn.addEventListener('click', event => {
-      event.preventDefault();
-      history.replaceState(null, '', window.location.pathname + window.location.search);
-    });
+    closeBtn.addEventListener('click', closeModal);
   });
 
   fetch('static/projects.json')
