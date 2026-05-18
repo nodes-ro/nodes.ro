@@ -11,6 +11,11 @@
 
     <link href="static/styles.css" rel="stylesheet">
 
+    <link rel="preload" as="image" href="static/bg.png" fetchpriority="high">
+    <link rel="preload" as="image" href="static/bg_back.png">
+    <link rel="preload" as="image" href="static/bg.jpg">
+    <link rel="preload" as="image" href="static/logo.png">
+
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -19,14 +24,13 @@
 <body>
 <div class="container">
     <input id="flip-toggle" type="checkbox"/>
-    <label for="flip-toggle">
-        <div class="card-wrapper">
+    <div class="card-wrapper">
             <div class="card">
                 <div class="card-front">
                     <div class="overlay"></div>
-                    <div class="button">
+                    <label class="button" for="flip-toggle" aria-label="Flip card">
                         <i class="fa-solid fa-repeat"></i>
-                    </div>
+                    </label>
                     <div class="content">
                         <a href="#modal" style="text-decoration:none;">
                             <span class="number"><i class="fa-solid fa-circle-nodes"></i> nodes.ro</span>
@@ -42,9 +46,9 @@
                     <div class="bg-overlay current"></div>
                     <div class="bg-overlay next"></div>
                     <div class="overlay"></div>
-                    <div class="button">
+                    <label class="button" for="flip-toggle" aria-label="Flip card">
                         <i class="fa-solid fa-repeat"></i>
-                    </div>
+                    </label>
                     <div class="content content-wide">
                         <div class="projects-overview">
                             <div class="overview-header">
@@ -57,12 +61,11 @@
                 </div>
             </div>
         </div>
-    </label>
 
     <div class="modal" id="modal">
         <div class="modal-content">
             <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
-            <img src="static/logo.png" width="140" alt="nodes.ro logo">
+            <img src="static/logo.png" width="140" height="140" loading="lazy" decoding="async" alt="nodes.ro logo">
             <div style="text-align:left;">
                 <section class="portfolio">
                     <header>
@@ -95,7 +98,7 @@
     <div class="modal" id="modal-projects">
         <div class="modal-content modal-content-large">
             <a class="modal-close" href="#"><i class="fa-solid fa-xmark"></i></a>
-            <img src="static/logo.png" width="120" alt="nodes.ro logo">
+            <img src="static/logo.png" width="120" height="120" loading="lazy" decoding="async" alt="nodes.ro logo">
             <section class="portfolio" style="text-align:left; width:100%;">
                 <header class="projects-header">
                     <h3><i class="fa-solid fa-layer-group"></i> Project Catalog</h3>
