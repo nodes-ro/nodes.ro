@@ -107,12 +107,28 @@
     </div>
 </div>
 
+
+    <div class="modal" id="modal-project-details">
+        <div class="modal-content modal-content-details">
+            <a class="modal-close" href="#modal-projects"><i class="fa-solid fa-xmark"></i></a>
+            <section class="portfolio" style="text-align:left; width:100%;">
+                <header class="projects-header">
+                    <h3><i class="fa-solid fa-circle-info"></i> Project Details</h3>
+                </header>
+                <article class="project-detail-card" id="project-detail-content"></article>
+            </section>
+        </div>
+    </div>
+
+</div>
+
 <script>
 (() => {
   const categoryGrid = document.getElementById('category-grid');
   const projectTotal = document.getElementById('project-total');
   const categoryFilter = document.getElementById('category-filter');
   const projectsList = document.getElementById('projects-list');
+  const detailContent = document.getElementById('project-detail-content');
   let allProjects = [];
   let activeCategory = 'All';
 
@@ -125,32 +141,62 @@
     }, {});
   }
 
-  function linkHtml(project) {
-    const links = [];
-    if (project.project_url) links.push(`<a href="${project.project_url}" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Open</a>`);
-    if (project.github_url) links.push(`<a href="${project.github_url}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>`);
-    return links.length ? `<div class="project-actions">${links.join('')}</div>` : '';
+  function safe(value, fallback = 'Not available') {
+    return value ? value : fallback;
+  }
+
+  function projectLinks(project) {
+    return `
+      <div class="project-actions">
+        ${project.project_url ? `<a href="${project.project_url}" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Open Project</a>` : ''}
+        ${project.github_url ? `<a href="${project.github_url}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>` : ''}
+      </div>
+    `;
+  }
+
+  function renderProjectDetails(project) {
+    detailContent.innerHTML = `
+      <h4><i class="fa-solid fa-cube"></i> ${project.project_name}</h4>
+      <p><i class="fa-solid fa-layer-group"></i> <strong>Category:</strong> ${project.category}</p>
+      <p><i class="fa-solid fa-align-left"></i> <strong>Description:</strong> ${safe(project.short_description)}</p>
+      <p><i class="fa-brands fa-github"></i> <strong>GitHub:</strong> ${project.github_url ? `<a href="${project.github_url}" target="_blank" rel="noopener">${project.github_url}</a>` : 'Not available'}</p>
+      <p><i class="fa-solid fa-link"></i> <strong>Project URL:</strong> ${project.project_url ? `<a href="${project.project_url}" target="_blank" rel="noopener">${project.project_url}</a>` : 'Not available'}</p>
+      ${projectLinks(project)}
+    `;
+  }
+
+  function attachProjectHandlers(source) {
+    source.querySelectorAll('[data-project-id]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const project = allProjects[Number(btn.dataset.projectId)];
+        if (project) renderProjectDetails(project);
+      });
+    });
   }
 
   function renderProjectCards(filtered) {
-    projectsList.innerHTML = filtered.map(project => `
+    projectsList.innerHTML = filtered.map(project => {
+      const idx = allProjects.indexOf(project);
+      return `
       <article class="project-card">
         <div class="project-card-top">
-          <span class="project-category">${project.category}</span>
+          <span class="project-category"><i class="fa-solid fa-tag"></i> ${project.category}</span>
           <h4>${project.project_name}</h4>
         </div>
         <p>${project.short_description}</p>
-        ${linkHtml(project)}
-      </article>
-    `).join('');
+        <div class="project-actions">
+          <a href="#modal-project-details" data-project-id="${idx}"><i class="fa-solid fa-circle-info"></i> Details</a>
+          ${project.project_url ? `<a href="${project.project_url}" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Open</a>` : ''}
+          ${project.github_url ? `<a href="${project.github_url}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>` : ''}
+        </div>
+      </article>`;
+    }).join('');
+    attachProjectHandlers(projectsList);
   }
 
   function renderFilters(categories) {
     const values = ['All', ...categories];
-    categoryFilter.innerHTML = values.map(value => {
-      const cls = value === activeCategory ? 'filter-chip active' : 'filter-chip';
-      return `<button type="button" class="${cls}" data-category="${value}">${value}</button>`;
-    }).join('');
+    categoryFilter.innerHTML = values.map(value => `<button type="button" class="${value === activeCategory ? 'filter-chip active' : 'filter-chip'}" data-category="${value}">${value}</button>`).join('');
 
     categoryFilter.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -168,16 +214,20 @@
     projectTotal.textContent = `${data.length} projects`;
 
     categoryGrid.innerHTML = categories.map(category => {
-      const sample = grouped[category].slice(0, 2).map(item => `<li>${item.project_name}</li>`).join('');
+      const fullList = grouped[category].map(item => {
+        const idx = allProjects.indexOf(item);
+        return `<li><a href="#modal-project-details" data-project-id="${idx}"><i class="fa-solid fa-angle-right"></i> ${item.project_name}</a></li>`;
+      }).join('');
       return `
-        <a class="category-card" href="#modal-projects" data-category-open="${category}">
-          <div class="category-card-head">
-            <strong>${category}</strong>
-            <span>${grouped[category].length}</span>
-          </div>
-          <ul>${sample}</ul>
-        </a>
-      `;
+        <div class="category-card-wrap">
+          <a class="category-card" href="#modal-projects" data-category-open="${category}">
+            <div class="category-card-head">
+              <strong><i class="fa-solid fa-folder-tree"></i> ${category}</strong>
+              <span>${grouped[category].length}</span>
+            </div>
+          </a>
+          <ul class="category-project-list">${fullList}</ul>
+        </div>`;
     }).join('');
 
     categoryGrid.querySelectorAll('[data-category-open]').forEach(el => {
@@ -188,6 +238,7 @@
       });
     });
 
+    attachProjectHandlers(categoryGrid);
     renderFilters(categories);
     renderProjectCards(allProjects);
   }
@@ -202,7 +253,7 @@
       projectTotal.textContent = 'Unable to load projects';
       categoryGrid.innerHTML = '<p class="load-error">Could not load project data.</p>';
     });
-})();
+})();;
 </script>
 </body>
 </html>

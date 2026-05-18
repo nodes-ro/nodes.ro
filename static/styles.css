@@ -110,6 +110,7 @@ body::before {
 .content-wide {
   left: 18px;
   right: 18px;
+  bottom: 88px;
   max-width: none !important;
 }
 
@@ -286,4 +287,61 @@ body::before {
   .modal-content { max-width: 92%; padding: 1rem; }
   .button, .modal-close { width: 40px; height: 40px; }
   .button i, .modal-close i { font-size: 18px; }
+}
+
+
+.category-card-wrap {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(113, 187, 178, 0.2);
+  border-radius: 14px;
+  padding: 8px;
+}
+
+.category-project-list {
+  margin: 8px 0 0;
+  padding-left: 16px;
+  max-height: 112px;
+  overflow: auto;
+}
+
+.category-project-list li {
+  margin-bottom: 6px;
+}
+
+.category-project-list a {
+  color: #dff8f4;
+  text-decoration: none;
+  font-size: 0.84rem;
+}
+
+.category-project-list a:hover {
+  text-decoration: underline;
+}
+
+.modal-content-details {
+  max-width: 680px;
+}
+
+.project-detail-card {
+  background: #f8fbfd;
+  border: 1px solid #dce7ef;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.project-detail-card h4 {
+  margin: 4px 0 12px;
+}
+
+.project-detail-card p {
+  margin: 8px 0;
+  color: #27445D;
+}
+
+.project-detail-card a {
+  color: #1f5f89;
+}
+
+@media (max-width: 768px) {
+  .content-wide { bottom: 74px; }
 }
