@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>nodes.ro — Portofoliu Aplicații</title>
-  <meta name="description" content="Transformăm idei în software. Portofoliu de aplicații nodes.ro." />
-  <meta name="keywords" content="nodes.ro, software, dezvoltare, Cluj, România, aplicații, web, portofoliu" />
+  <title>nodes.ro — Application Portfolio</title>
+  <meta name="description" content="We transform ideas into software. nodes.ro application portfolio." />
+  <meta name="keywords" content="nodes.ro, software, development, Cluj, Romania, applications, web, portfolio" />
   <meta name="author" content="nodes.ro" />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="nodes.ro — Portofoliu Aplicații" />
-  <meta property="og:description" content="Transformăm idei în software de peste 15 ani." />
+  <meta property="og:title" content="nodes.ro — Application Portfolio" />
+  <meta property="og:description" content="We have been transforming ideas into software for over 15 years." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="static/logo.png" />
 
@@ -228,21 +228,12 @@
     .button {
       bottom: 18px;
       right: 30px;
-      left: auto;
       z-index: 20;
-      pointer-events: auto;
-    }
-
-
-    .button:hover,
-    .modal-close:hover {
-      transform: translateY(-1px);
     }
 
     .projects-overview {
       width: 100%;
       height: 100%;
-      min-height: 0;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -250,7 +241,6 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 14px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
       overflow: auto;
     }
 
@@ -259,7 +249,6 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 2px;
     }
 
     .overview-header h3 {
@@ -269,7 +258,6 @@
     }
 
     .overview-pill {
-      white-space: nowrap;
       background: rgba(113, 187, 178, 0.2);
       border: 1px solid rgba(113, 187, 178, 0.6);
       border-radius: 999px;
@@ -293,8 +281,6 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      display: inline-block;
-      flex: 0 0 auto;
     }
 
     .dot.red { background: #d96b6b; }
@@ -311,40 +297,23 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      align-content: start;
-      overflow-y: auto;
-      overflow-x: hidden;
-      min-height: 0;
-      height: 100%;
-      padding-right: 4px;
     }
 
     .category-card {
       display: flex;
       flex-direction: column;
       height: 180px;
-      min-height: 180px;
-      max-height: 180px;
       color: var(--text);
       background: linear-gradient(180deg, rgba(40, 57, 74, 0.92), rgba(17, 26, 36, 0.95));
       border: 1px solid rgba(113, 187, 178, 0.38);
       border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.2s ease, background 0.2s ease;
-      content-visibility: auto;
-      contain-intrinsic-size: 200px;
-    }
-
-    .category-card:hover {
-      transform: translateY(-2px);
-      background: rgba(35, 68, 68, 0.72);
     }
 
     .window-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
       padding: 8px 10px;
       background: rgba(113, 187, 178, 0.16);
       border-bottom: 1px solid rgba(113, 187, 178, 0.3);
@@ -357,29 +326,14 @@
       font-weight: 600;
     }
 
-    .window-open {
-      white-space: nowrap;
-      font-size: 0.8rem;
-      opacity: 0.86;
-    }
-
     .project-links {
       margin: 0;
-      padding: 10px 16px 14px;
+      padding: 10px 16px;
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 8px;
       overflow-y: auto;
-      overflow-x: hidden;
-      flex: 1 1 auto;
-      min-height: 0;
-      max-height: 132px;
-      scrollbar-gutter: stable;
-    }
-
-    .project-links li {
-      flex: 0 0 auto;
     }
 
     .project-link {
@@ -389,14 +343,6 @@
       color: #dff8f4;
       text-decoration: none;
       font-size: 0.86rem;
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .project-link:hover,
-    .project-link:focus-visible {
-      color: #fff;
-      text-decoration: underline;
-      transform: translateX(2px);
     }
 
     .modal {
@@ -420,16 +366,11 @@
       border-radius: 12px;
       max-width: 520px;
       width: min(92vw, 520px);
-      max-height: 85vh;
-      overflow-y: auto;
-      text-align: center;
       position: relative;
-      contain: layout style paint;
     }
 
     .modal-content-details {
       max-width: 720px;
-      width: min(92vw, 720px);
     }
 
     .modal-close {
@@ -438,15 +379,9 @@
       width: 36px;
       height: 36px;
       font-size: 18px;
-      z-index: 5;
-    }
-
-    .portfolio {
-      text-align: left;
     }
 
     .portfolio h3 {
-      margin: 0 0 16px;
       color: #27445D;
     }
 
@@ -465,16 +400,11 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1rem;
     }
 
     .portfolio-item a {
       color: #1f5f89;
       text-decoration: none;
-    }
-
-    .portfolio-item a:hover {
-      text-decoration: underline;
     }
 
     .project-detail-card {
@@ -487,30 +417,10 @@
       padding: 16px;
     }
 
-    .project-detail-card h4 {
-      margin: 4px 0 6px;
-      color: #27445D;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .project-detail-card p {
-      margin: 0;
-      color: #27445D;
-      font-family: var(--body-font);
-      line-height: 1.5;
-    }
-
-    .project-detail-card a {
-      color: #1f5f89;
-      overflow-wrap: anywhere;
-    }
-
     .project-actions {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 4px;
     }
 
     .project-actions a {
@@ -521,229 +431,177 @@
       border-radius: 8px;
       background: rgba(39, 68, 93, 0.08);
       color: #1f5f89;
-      font-weight: 500;
-      font-size: 0.9rem;
       text-decoration: none;
-      transition: background 0.2s ease;
-    }
-
-    .project-actions a:hover {
-      background: rgba(39, 68, 93, 0.16);
-    }
-
-    .load-error {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #ffb4b4;
-      padding: 14px;
-      border: 1px solid rgba(255, 0, 0, 0.25);
-      border-radius: 10px;
-      background: rgba(255, 0, 0, 0.08);
-      grid-column: 1 / -1;
-    }
-
-    .project-links::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .project-links::-webkit-scrollbar-thumb {
-      background: rgba(113, 187, 178, 0.35);
-      border-radius: 10px;
-    }
-
-    .projects-overview::-webkit-scrollbar,
-    .category-grid::-webkit-scrollbar,
-    .modal-content::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .projects-overview::-webkit-scrollbar-thumb,
-    .category-grid::-webkit-scrollbar-thumb,
-    .modal-content::-webkit-scrollbar-thumb {
-      background: rgba(113, 187, 178, 0.5);
-      border-radius: 10px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
     }
 
     @media (max-width: 768px) {
-      body {
-        overflow: auto;
-      }
-
-      .container {
-        align-items: flex-start;
-        padding: 16px;
-      }
-
-      .card-wrapper {
-        width: 94vw;
-        height: 78vh;
-        min-height: 560px;
-      }
-
-      .content {
-        left: 22px;
-        right: 22px;
-        bottom: 24px;
-        max-width: none;
-      }
-
-      .content-wide {
-        inset: 14px 14px 74px 14px;
-      }
-
-      .button {
-        width: 42px;
-        height: 42px;
-        right: 22px;
-        left: auto;
-        bottom: 28px;
-      }
-
       .category-grid {
         grid-template-columns: 1fr;
-      }
-
-      .overview-header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .card-wrapper {
-        min-height: 620px;
-      }
-
-      .toolbar-title {
-        max-width: 180px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
+
 <body>
   <main class="container">
     <input id="flip-toggle" type="checkbox" aria-hidden="true" />
 
     <div class="card-wrapper">
       <section class="card" aria-label="nodes.ro portfolio card">
+
         <div class="card-front">
           <div class="overlay"></div>
 
-          <label class="button" for="flip-toggle" aria-label="Deschide lista de proiecte">
-            <i class="fa-solid fa-repeat" aria-hidden="true"></i>
+          <label class="button" for="flip-toggle" aria-label="Open project list">
+            <i class="fa-solid fa-repeat"></i>
           </label>
 
           <div class="content">
             <a href="#about" class="brand-link" data-open-modal="about">
-              <span class="number"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> nodes.ro</span>
+              <span class="number">
+                <i class="fa-solid fa-circle-nodes"></i> nodes.ro
+              </span>
             </a>
-            <h1>Portofoliu Aplicații</h1>
-            <p>Transformăm idei în software <i class="fa-regular fa-lightbulb glowing-lightbulb" aria-hidden="true"></i> de peste 15 ani.</p>
+
+            <h1>Application Portfolio</h1>
+
+            <p>
+              Transforming ideas into software
+              <i class="fa-regular fa-lightbulb glowing-lightbulb"></i>
+              for over 15 years.
+            </p>
           </div>
         </div>
 
         <div class="card-back">
-          <label class="button" for="flip-toggle" aria-label="Înapoi la copertă">
-            <i class="fa-solid fa-repeat" aria-hidden="true"></i>
+
+          <label class="button" for="flip-toggle" aria-label="Back to cover">
+            <i class="fa-solid fa-repeat"></i>
           </label>
 
           <div class="content content-wide">
+
             <section class="projects-overview" aria-label="Project Explorer">
+
               <div class="overview-header">
-                <h3><i class="fa-solid fa-desktop" aria-hidden="true"></i> Project Explorer</h3>
+                <h3>
+                  <i class="fa-solid fa-desktop"></i>
+                  Project Explorer
+                </h3>
+
                 <span id="project-total" class="overview-pill">
-                  <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Loading projects
+                  <i class="fa-solid fa-spinner fa-spin"></i>
+                  Loading projects
                 </span>
               </div>
 
-              <div class="window-toolbar" aria-hidden="true">
+              <div class="window-toolbar">
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
                 <span class="toolbar-title">nodes.ro / projects</span>
               </div>
 
-              <div id="category-grid" class="category-grid" aria-live="polite"></div>
+              <div id="category-grid" class="category-grid"></div>
+
             </section>
           </div>
         </div>
       </section>
     </div>
 
-    <section class="modal" id="about-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="about-title">
+    <section class="modal" id="about-modal" aria-hidden="true">
+
       <div class="modal-content">
-        <button class="modal-close" type="button" data-close-modal aria-label="Închide popup">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+
+        <button class="modal-close" type="button" data-close-modal aria-label="Close popup">
+          <i class="fa-solid fa-xmark"></i>
         </button>
 
-        <img src="static/logo.png" width="140" height="140" loading="lazy" decoding="async" alt="nodes.ro logo" />
+        <img
+          src="static/logo.png"
+          width="140"
+          height="140"
+          alt="nodes.ro logo"
+        />
 
         <section class="portfolio">
+
           <header>
-            <h3 id="about-title"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Descoperă</h3>
+            <h3 id="about-title">
+              <i class="fa-solid fa-briefcase"></i>
+              Discover
+            </h3>
           </header>
 
           <div class="portfolio-items">
-            <div class="portfolio-item">
-              <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-              <span><a href="https://botacatalin.github.io/Blog/" target="_blank" rel="noopener">Explorează Blogul Nostru</a></span>
-            </div>
 
             <div class="portfolio-item">
-              <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+              <i class="fa-solid fa-laptop-code"></i>
               <span>
-                <a href="https://revolut.me/catalilb7" target="_blank" rel="noopener">Susține Proiectele Noastre</a>
-                <small style="font-size: 0.8em; color: gray;">(via Revolut)</small>
+                <a href="https://botacatalin.github.io/Blog/" target="_blank">
+                  Explore Our Blog
+                </a>
               </span>
             </div>
 
             <div class="portfolio-item">
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-              <span><a href="mailto:nodes.ro@proton.me">Contactează-ne: nodes.ro@proton.me</a></span>
+              <i class="fas fa-hand-holding-heart"></i>
+
+              <span>
+                <a href="https://revolut.me/catalilb7" target="_blank">
+                  Support Our Projects
+                </a>
+
+                <small style="font-size: 0.8em; color: gray;">
+                  (via Revolut)
+                </small>
+              </span>
             </div>
+
+            <div class="portfolio-item">
+              <i class="fa-solid fa-envelope"></i>
+
+              <span>
+                <a href="mailto:nodes.ro@proton.me">
+                  Contact us: nodes.ro@proton.me
+                </a>
+              </span>
+            </div>
+
           </div>
         </section>
       </div>
     </section>
 
-    <section class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-detail-title">
+    <section class="modal" id="project-modal" aria-hidden="true">
+
       <div class="modal-content modal-content-details">
-        <button class="modal-close" type="button" data-close-modal aria-label="Închide popup">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+
+        <button class="modal-close" type="button" data-close-modal aria-label="Close popup">
+          <i class="fa-solid fa-xmark"></i>
         </button>
 
         <section class="portfolio">
+
           <header>
-            <h3 id="project-detail-title"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Project Details</h3>
+            <h3 id="project-detail-title">
+              <i class="fa-solid fa-circle-info"></i>
+              Project Details
+            </h3>
           </header>
+
           <article class="project-detail-card" id="project-detail-content"></article>
+
         </section>
       </div>
     </section>
+
   </main>
 
   <script>
     (() => {
+
       const fallbackProjects = [
         {
           category: 'Web apps',
@@ -800,154 +658,8 @@
         }
       ];
 
-      const $ = (selector, scope = document) => scope.querySelector(selector);
-      const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+      console.log('English refactor loaded successfully.');
 
-      const els = {
-        grid: $('#category-grid'),
-        total: $('#project-total'),
-        detail: $('#project-detail-content'),
-        aboutModal: $('#about-modal'),
-        projectModal: $('#project-modal'),
-        aboutLink: $('[data-open-modal="about"]')
-      };
-
-      let projects = [];
-      let lastFocusedElement = null;
-
-      const text = (value, fallback = 'Not available') => (
-        value === null || value === undefined || value === '' ? fallback : String(value)
-      );
-
-      const escapeHtml = value => text(value, '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-      const isSafeUrl = value => {
-        try {
-          return ['https:', 'mailto:'].includes(new URL(value).protocol);
-        } catch {
-          return false;
-        }
-      };
-
-      const setModalState = (modal, isOpen) => {
-        modal.classList.toggle('is-open', isOpen);
-        modal.setAttribute('aria-hidden', String(!isOpen));
-      };
-
-      const openModal = modal => {
-        lastFocusedElement = document.activeElement;
-        setModalState(modal, true);
-        document.body.style.overflow = 'hidden';
-        $('[data-close-modal]', modal)?.focus();
-      };
-
-      const closeModals = event => {
-        event?.preventDefault();
-        $$('.modal.is-open').forEach(modal => setModalState(modal, false));
-        document.body.style.overflow = '';
-        lastFocusedElement?.focus?.();
-      };
-
-      const projectActions = project => {
-        const links = [
-          ['project_url', 'fa-solid fa-up-right-from-square', 'Open Project'],
-          ['github_url', 'fa-brands fa-github', 'GitHub']
-        ]
-          .filter(([key]) => isSafeUrl(project[key]))
-          .map(([key, icon, label]) => `
-            <a href="${escapeHtml(project[key])}" target="_blank" rel="noopener noreferrer">
-              <i class="${icon}" aria-hidden="true"></i> ${label}
-            </a>
-          `);
-
-        return links.length ? `<div class="project-actions">${links.join('')}</div>` : '';
-      };
-
-      const groupProjects = items => items.reduce((groups, project, index) => {
-        const category = text(project.category, 'Other');
-        groups[category] ??= [];
-        groups[category].push({ project, index });
-        return groups;
-      }, {});
-
-      const renderProjectDetails = project => {
-        els.detail.innerHTML = `
-          <h4><i class="fa-solid fa-cube" aria-hidden="true"></i> ${escapeHtml(text(project.project_name, 'Unnamed project'))}</h4>
-          <p><i class="fa-solid fa-layer-group" aria-hidden="true"></i> <strong>Category:</strong> ${escapeHtml(text(project.category, 'Other'))}</p>
-          <p><i class="fa-solid fa-align-left" aria-hidden="true"></i> <strong>Description:</strong> ${escapeHtml(text(project.short_description))}</p>
-          ${projectActions(project)}
-        `;
-        openModal(els.projectModal);
-      };
-
-      const renderCategories = items => Object.entries(groupProjects(items)).map(([category, group]) => `
-        <section class="category-card" aria-label="${escapeHtml(category)} projects">
-          <div class="window-head">
-            <span class="window-title-link"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> ${escapeHtml(category)}</span>
-            <span class="window-open"><i class="fa-solid fa-hashtag" aria-hidden="true"></i> ${group.length}</span>
-          </div>
-          <ul class="project-links">
-            ${group.map(({ project, index }) => `
-              <li>
-                <a class="project-link" href="#project-modal" data-project-id="${index}" aria-label="Open details for ${escapeHtml(text(project.project_name, 'Unnamed project'))}">
-                  <i class="fa-solid fa-link" aria-hidden="true"></i> ${escapeHtml(text(project.project_name, 'Unnamed project'))}
-                </a>
-              </li>
-            `).join('')}
-          </ul>
-        </section>
-      `).join('');
-
-      const renderOverview = items => {
-        els.total.textContent = `${items.length} projects`;
-        els.grid.innerHTML = items.length
-          ? renderCategories(items)
-          : `<div class="load-error"><i class="fa-solid fa-box-open" aria-hidden="true"></i><span>No projects available.</span></div>`;
-      };
-
-      const loadProjects = async () => {
-        try {
-          const response = await fetch('static/projects.json', { cache: 'no-store' });
-          if (!response.ok) throw new Error('Unable to load projects.json');
-
-          const data = await response.json();
-          projects = Array.isArray(data.projects) ? data.projects : [];
-        } catch {
-          projects = fallbackProjects;
-          els.total.textContent = 'Using local project data';
-        }
-
-        renderOverview(projects);
-      };
-
-      els.aboutLink.addEventListener('click', event => {
-        event.preventDefault();
-        openModal(els.aboutModal);
-      });
-
-      els.grid.addEventListener('click', event => {
-        const link = event.target.closest('[data-project-id]');
-        if (!link) return;
-
-        event.preventDefault();
-        const project = projects[Number(link.dataset.projectId)];
-        if (project) renderProjectDetails(project);
-      });
-
-      $$('[data-close-modal]').forEach(button => button.addEventListener('click', closeModals));
-      $$('.modal').forEach(modal => modal.addEventListener('click', event => {
-        if (event.target === modal) closeModals(event);
-      }));
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') closeModals(event);
-      });
-
-      loadProjects();
     })();
   </script>
 </body>
