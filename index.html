@@ -198,6 +198,9 @@
   function closeModal(event) {
     if (event) event.preventDefault();
     clearHash();
+    if (window.location.hash.startsWith('#modal')) {
+      window.location.hash = '';
+    }
   }
 
   document.querySelectorAll('[data-close-modal]').forEach(closeBtn => {
