@@ -223,14 +223,33 @@ body::before {
 .project-box {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  padding:2.5rem; border-radius:18px;
+  padding:2rem; border-radius:18px;
   background:rgba(0,0,0,.4);
-  color:var(--fg); font-weight:bold;
+  color:#EFE9D5; font-weight:bold;
   text-decoration:none; transition:.3s;
-  font-family: var(--font-h); text-align:center;
+  font-family: var(--heading-font); text-align:center;
 }
 .project-box:hover {
   background:rgba(113,187,178,.4);
+}
+
+.project-box-wide {
+  min-width: 360px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.project-link {
+  color: #EFE9D5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-link:hover {
+  text-decoration: underline;
 }
 
 /* ==========================================================================
