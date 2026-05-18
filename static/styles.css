@@ -310,7 +310,7 @@ body::before {
 }
 
 .modal-close { top: -20px; right: -20px; font-size: 24px; }
-.button { bottom: 30px; right: 30px; z-index: 999; }
+.button { bottom: 30px; left: 30px; right: auto; z-index: 999; }
 
 .projects-header { margin-bottom: 12px; }
 .project-actions { display: flex; gap: 10px; }
@@ -385,14 +385,15 @@ img {
 
 
 .card-back .button {
-  top: 18px;
-  bottom: auto;
-  right: 18px;
-  left: auto;
+  bottom: 30px;
+  left: 30px;
+  right: auto;
+  top: auto;
   z-index: 50;
 }
 
 .card-back .overlay {
+  display: none;
   pointer-events: none;
 }
 
