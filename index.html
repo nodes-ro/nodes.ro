@@ -233,17 +233,6 @@
       pointer-events: auto;
     }
 
-    .card-front .button {
-      position: absolute;
-      bottom: 18px;
-      right: 30px;
-    }
-
-    .card-back .button {
-      position: absolute;
-      bottom: 18px;
-      right: 30px;
-    }
 
     .button:hover,
     .modal-close:hover {
@@ -755,281 +744,210 @@
 
   <script>
     (() => {
-      const fallbackProjects = {
-        projects: [
-          {
-            category: 'Web apps',
-            project_name: 'Time4All',
-            short_description: 'Plan meetings across time zones.',
-            github_url: null,
-            project_url: 'https://time4all.eu'
-          },
-          {
-            category: 'Web apps',
-            project_name: 'ReadyPlan',
-            short_description: 'Prepare and build your emergency plan.',
-            github_url: null,
-            project_url: 'https://readyplan.eu'
-          },
-          {
-            category: 'Web apps',
-            project_name: 'Ideas',
-            short_description: 'Ignite creativity by sharing ideas.',
-            github_url: 'https://github.com/nodes-ro/ideas',
-            project_url: 'https://nodes-ro.github.io/ideas/'
-          },
-          {
-            category: 'Web apps',
-            project_name: 'ProgramBuilder',
-            short_description: 'Program builder for events.',
-            github_url: 'https://github.com/nodes-ro/ProgramBuilder',
-            project_url: 'https://nodes-ro.github.io/ProgramBuilder/'
-          },
-          {
-            category: 'Web apps',
-            project_name: 'Custom Lottery',
-            short_description: 'Create your own custom lottery.',
-            github_url: null,
-            project_url: null
-          },
-          {
-            category: 'Desktop app',
-            project_name: 'Eclipse RCP Application',
-            short_description: 'Desktop app showcase built with Eclipse RCP.',
-            github_url: 'https://github.com/nodes-ro/nodes-rcp-desktop',
-            project_url: 'https://nodes-ro.github.io/nodes-rcp-desktop/'
-          },
-          {
-            category: 'Embedded',
-            project_name: 'Upcoming Embedded Project',
-            short_description: 'Stay tuned for our next wave of innovations.',
-            github_url: null,
-            project_url: null
-          },
-          {
-            category: 'AI & Automations',
-            project_name: 'Upcoming AI Project',
-            short_description: 'Stay tuned for our next wave of innovations.',
-            github_url: null,
-            project_url: null
-          },
-          {
-            category: 'Books',
-            project_name: 'Upcoming Book Project',
-            short_description: 'Placeholder entry for future books.',
-            github_url: null,
-            project_url: null
-          }
-        ]
+      const fallbackProjects = [
+        {
+          category: 'Web apps',
+          project_name: 'Time4All',
+          short_description: 'Plan meetings across time zones.',
+          project_url: 'https://time4all.eu'
+        },
+        {
+          category: 'Web apps',
+          project_name: 'ReadyPlan',
+          short_description: 'Prepare and build your emergency plan.',
+          project_url: 'https://readyplan.eu'
+        },
+        {
+          category: 'Web apps',
+          project_name: 'Ideas',
+          short_description: 'Ignite creativity by sharing ideas.',
+          github_url: 'https://github.com/nodes-ro/ideas',
+          project_url: 'https://nodes-ro.github.io/ideas/'
+        },
+        {
+          category: 'Web apps',
+          project_name: 'ProgramBuilder',
+          short_description: 'Program builder for events.',
+          github_url: 'https://github.com/nodes-ro/ProgramBuilder',
+          project_url: 'https://nodes-ro.github.io/ProgramBuilder/'
+        },
+        {
+          category: 'Web apps',
+          project_name: 'Custom Lottery',
+          short_description: 'Create your own custom lottery.'
+        },
+        {
+          category: 'Desktop app',
+          project_name: 'Eclipse RCP Application',
+          short_description: 'Desktop app showcase built with Eclipse RCP.',
+          github_url: 'https://github.com/nodes-ro/nodes-rcp-desktop',
+          project_url: 'https://nodes-ro.github.io/nodes-rcp-desktop/'
+        },
+        {
+          category: 'Embedded',
+          project_name: 'Upcoming Embedded Project',
+          short_description: 'Stay tuned for our next wave of innovations.'
+        },
+        {
+          category: 'AI & Automations',
+          project_name: 'Upcoming AI Project',
+          short_description: 'Stay tuned for our next wave of innovations.'
+        },
+        {
+          category: 'Books',
+          project_name: 'Upcoming Book Project',
+          short_description: 'Placeholder entry for future books.'
+        }
+      ];
+
+      const $ = (selector, scope = document) => scope.querySelector(selector);
+      const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+      const els = {
+        grid: $('#category-grid'),
+        total: $('#project-total'),
+        detail: $('#project-detail-content'),
+        aboutModal: $('#about-modal'),
+        projectModal: $('#project-modal'),
+        aboutLink: $('[data-open-modal="about"]')
       };
 
-      const categoryGrid = document.getElementById('category-grid');
-      const projectTotal = document.getElementById('project-total');
-      const detailContent = document.getElementById('project-detail-content');
-      const aboutModal = document.getElementById('about-modal');
-      const projectModal = document.getElementById('project-modal');
-      const aboutLink = document.querySelector('[data-open-modal="about"]');
-
-      let allProjects = [];
+      let projects = [];
       let lastFocusedElement = null;
 
-      function safe(value, fallback = 'Not available') {
-        return value === null || value === undefined || value === '' ? fallback : String(value);
-      }
+      const text = (value, fallback = 'Not available') => (
+        value === null || value === undefined || value === '' ? fallback : String(value)
+      );
 
-      function escapeHtml(value = '') {
-        return String(value)
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#039;');
-      }
+      const escapeHtml = value => text(value, '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 
-      function isValidUrl(value) {
-        if (!value) return false;
-
+      const isSafeUrl = value => {
         try {
-          const url = new URL(value);
-          return url.protocol === 'https:' || url.protocol === 'mailto:';
+          return ['https:', 'mailto:'].includes(new URL(value).protocol);
         } catch {
           return false;
         }
-      }
+      };
 
-      function openModal(modal) {
+      const setModalState = (modal, isOpen) => {
+        modal.classList.toggle('is-open', isOpen);
+        modal.setAttribute('aria-hidden', String(!isOpen));
+      };
+
+      const openModal = modal => {
         lastFocusedElement = document.activeElement;
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
+        setModalState(modal, true);
         document.body.style.overflow = 'hidden';
+        $('[data-close-modal]', modal)?.focus();
+      };
 
-        const closeButton = modal.querySelector('[data-close-modal]');
-        if (closeButton) closeButton.focus();
-      }
-
-      function closeModal(event) {
-        if (event) event.preventDefault();
-
-        document.querySelectorAll('.modal.is-open').forEach(modal => {
-          modal.classList.remove('is-open');
-          modal.setAttribute('aria-hidden', 'true');
-        });
-
+      const closeModals = event => {
+        event?.preventDefault();
+        $$('.modal.is-open').forEach(modal => setModalState(modal, false));
         document.body.style.overflow = '';
+        lastFocusedElement?.focus?.();
+      };
 
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-          lastFocusedElement.focus();
-        }
-      }
-
-      function projectLinks(project) {
-        const projectUrl = safe(project.project_url, '');
-        const githubUrl = safe(project.github_url, '');
-
-        const links = [];
-
-        if (isValidUrl(projectUrl)) {
-          links.push(`
-            <a href="${escapeHtml(projectUrl)}" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">
-              <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i> Open Project
+      const projectActions = project => {
+        const links = [
+          ['project_url', 'fa-solid fa-up-right-from-square', 'Open Project'],
+          ['github_url', 'fa-brands fa-github', 'GitHub']
+        ]
+          .filter(([key]) => isSafeUrl(project[key]))
+          .map(([key, icon, label]) => `
+            <a href="${escapeHtml(project[key])}" target="_blank" rel="noopener noreferrer">
+              <i class="${icon}" aria-hidden="true"></i> ${label}
             </a>
           `);
-        }
 
-        if (isValidUrl(githubUrl)) {
-          links.push(`
-            <a href="${escapeHtml(githubUrl)}" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, '_blank', 'noopener,noreferrer'); return false;">
-              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
-            </a>
-          `);
-        }
+        return links.length ? `<div class="project-actions">${links.join('')}</div>` : '';
+      };
 
-        if (!links.length) return '';
+      const groupProjects = items => items.reduce((groups, project, index) => {
+        const category = text(project.category, 'Other');
+        groups[category] ??= [];
+        groups[category].push({ project, index });
+        return groups;
+      }, {});
 
-        return `<div class="project-actions">${links.join('')}</div>`;
-      }
-
-      function renderProjectDetails(project) {
-        const name = escapeHtml(safe(project.project_name, 'Unnamed project'));
-        const category = escapeHtml(safe(project.category, 'Other'));
-        const description = escapeHtml(safe(project.short_description));
-        detailContent.innerHTML = `
-          <h4><i class="fa-solid fa-cube" aria-hidden="true"></i> ${name}</h4>
-          <p><i class="fa-solid fa-layer-group" aria-hidden="true"></i> <strong>Category:</strong> ${category}</p>
-          <p><i class="fa-solid fa-align-left" aria-hidden="true"></i> <strong>Description:</strong> ${description}</p>
-          ${projectLinks(project)}
+      const renderProjectDetails = project => {
+        els.detail.innerHTML = `
+          <h4><i class="fa-solid fa-cube" aria-hidden="true"></i> ${escapeHtml(text(project.project_name, 'Unnamed project'))}</h4>
+          <p><i class="fa-solid fa-layer-group" aria-hidden="true"></i> <strong>Category:</strong> ${escapeHtml(text(project.category, 'Other'))}</p>
+          <p><i class="fa-solid fa-align-left" aria-hidden="true"></i> <strong>Description:</strong> ${escapeHtml(text(project.short_description))}</p>
+          ${projectActions(project)}
         `;
+        openModal(els.projectModal);
+      };
 
-        openModal(projectModal);
-      }
-
-      function attachProjectHandlers() {
-        categoryGrid.querySelectorAll('[data-project-id]').forEach(link => {
-          link.addEventListener('click', event => {
-            event.preventDefault();
-
-            const project = allProjects[Number(link.dataset.projectId)];
-            if (project) renderProjectDetails(project);
-          });
-        });
-      }
-
-      function buildCategoryView(projects) {
-        const groups = projects.reduce((acc, project, idx) => {
-          const key = safe(project.category, 'Other');
-          if (!acc[key]) acc[key] = [];
-          acc[key].push({ project, idx });
-          return acc;
-        }, {});
-
-        return Object.entries(groups).map(([category, items]) => `
-          <section class="category-card" aria-label="${escapeHtml(category)} projects">
-            <div class="window-head">
-              <span class="window-title-link"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> ${escapeHtml(category)}</span>
-              <span class="window-open"><i class="fa-solid fa-hashtag" aria-hidden="true"></i> ${items.length}</span>
-            </div>
-            <ul class="project-links">
-              ${items.map(({ project, idx }) => {
-                const projectName = safe(project.project_name, 'Unnamed project');
-
-                return `
-                  <li>
-                    <a
-                      class="project-link"
-                      href="#project-modal"
-                      data-project-id="${idx}"
-                      aria-label="Open details for ${escapeHtml(projectName)}"
-                    >
-                      <i class="fa-solid fa-link" aria-hidden="true"></i> ${escapeHtml(projectName)}
-                    </a>
-                  </li>
-                `;
-              }).join('')}
-            </ul>
-          </section>
-        `).join('');
-      }
-
-      function renderOverview(projects) {
-        projectTotal.textContent = `${projects.length} projects`;
-
-        if (!projects.length) {
-          categoryGrid.innerHTML = `
-            <div class="load-error">
-              <i class="fa-solid fa-box-open" aria-hidden="true"></i>
-              <span>No projects available.</span>
-            </div>
-          `;
-          return;
-        }
-
-        categoryGrid.innerHTML = buildCategoryView(projects);
-        attachProjectHandlers();
-      }
-
-      function showLoadError() {
-        projectTotal.textContent = 'Using local project data';
-        categoryGrid.innerHTML = `
-          <div class="load-error">
-            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-            <span>Could not load static/projects.json. Showing fallback data.</span>
+      const renderCategories = items => Object.entries(groupProjects(items)).map(([category, group]) => `
+        <section class="category-card" aria-label="${escapeHtml(category)} projects">
+          <div class="window-head">
+            <span class="window-title-link"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> ${escapeHtml(category)}</span>
+            <span class="window-open"><i class="fa-solid fa-hashtag" aria-hidden="true"></i> ${group.length}</span>
           </div>
-        `;
-      }
+          <ul class="project-links">
+            ${group.map(({ project, index }) => `
+              <li>
+                <a class="project-link" href="#project-modal" data-project-id="${index}" aria-label="Open details for ${escapeHtml(text(project.project_name, 'Unnamed project'))}">
+                  <i class="fa-solid fa-link" aria-hidden="true"></i> ${escapeHtml(text(project.project_name, 'Unnamed project'))}
+                </a>
+              </li>
+            `).join('')}
+          </ul>
+        </section>
+      `).join('');
 
-      aboutLink.addEventListener('click', event => {
-        event.preventDefault();
-        openModal(aboutModal);
-      });
+      const renderOverview = items => {
+        els.total.textContent = `${items.length} projects`;
+        els.grid.innerHTML = items.length
+          ? renderCategories(items)
+          : `<div class="load-error"><i class="fa-solid fa-box-open" aria-hidden="true"></i><span>No projects available.</span></div>`;
+      };
 
-      document.querySelectorAll('[data-close-modal]').forEach(closeBtn => {
-        closeBtn.addEventListener('click', closeModal);
-      });
-
-      document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', event => {
-          if (event.target === modal) closeModal(event);
-        });
-      });
-
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') closeModal(event);
-      });
-
-      fetch('static/projects.json', { cache: 'no-store' })
-        .then(response => {
+      const loadProjects = async () => {
+        try {
+          const response = await fetch('static/projects.json', { cache: 'no-store' });
           if (!response.ok) throw new Error('Unable to load projects.json');
-          return response.json();
-        })
-        .then(data => {
-          allProjects = Array.isArray(data.projects) ? data.projects : [];
-          renderOverview(allProjects);
-        })
-        .catch(() => {
-          allProjects = fallbackProjects.projects;
-          showLoadError();
-          renderOverview(allProjects);
-        });
+
+          const data = await response.json();
+          projects = Array.isArray(data.projects) ? data.projects : [];
+        } catch {
+          projects = fallbackProjects;
+          els.total.textContent = 'Using local project data';
+        }
+
+        renderOverview(projects);
+      };
+
+      els.aboutLink.addEventListener('click', event => {
+        event.preventDefault();
+        openModal(els.aboutModal);
+      });
+
+      els.grid.addEventListener('click', event => {
+        const link = event.target.closest('[data-project-id]');
+        if (!link) return;
+
+        event.preventDefault();
+        const project = projects[Number(link.dataset.projectId)];
+        if (project) renderProjectDetails(project);
+      });
+
+      $$('[data-close-modal]').forEach(button => button.addEventListener('click', closeModals));
+      $$('.modal').forEach(modal => modal.addEventListener('click', event => {
+        if (event.target === modal) closeModals(event);
+      }));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeModals(event);
+      });
+
+      loadProjects();
     })();
   </script>
 </body>
