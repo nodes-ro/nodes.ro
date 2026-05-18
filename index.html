@@ -70,7 +70,7 @@
 
     <div class="modal" id="modal">
         <div class="modal-content">
-            <a class="modal-close" href="#" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></a>
+            <button class="modal-close" type="button" data-close-modal aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
             <img src="static/logo.png" width="140" height="140" loading="lazy" decoding="async" alt="nodes.ro logo">
             <div style="text-align:left;">
                 <section class="portfolio">
@@ -105,7 +105,7 @@
 
     <div class="modal" id="modal-project-details">
         <div class="modal-content modal-content-details">
-            <a class="modal-close" href="#" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></a>
+            <button class="modal-close" type="button" data-close-modal aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
             <section class="portfolio" style="text-align:left; width:100%;">
                 <header class="projects-header">
                     <h3><i class="fa-solid fa-circle-info"></i> Project Details</h3>
@@ -157,17 +157,36 @@
     });
   }
 
+  function buildCategoryView(projects) {
+    const groups = projects.reduce((acc, project, idx) => {
+      const key = safe(project.category, 'Other');
+      if (!acc[key]) acc[key] = [];
+      acc[key].push({ project, idx });
+      return acc;
+    }, {});
+
+    return Object.entries(groups).map(([category, items]) => `
+      <section class="category-card">
+        <div class="window-head">
+          <a class="window-title-link" href="#"><i class="fa-solid fa-folder-open"></i> ${category}</a>
+          <span class="window-open"><i class="fa-solid fa-hashtag"></i> ${items.length}</span>
+        </div>
+        <ul class="project-links">
+          ${items.map(({ project, idx }) => `
+            <li>
+              <a class="project-link" href="#modal-project-details" data-project-id="${idx}">
+                <i class="fa-solid fa-link"></i> ${safe(project.project_name, 'Unnamed project')}
+              </a>
+            </li>
+          `).join('')}
+        </ul>
+      </section>
+    `).join('');
+  }
+
   function renderOverview(projects) {
     projectTotal.textContent = `${projects.length} projects`;
-    categoryGrid.innerHTML = projects.map((project, idx) => `
-      <a class="category-card" href="#modal-project-details" data-project-id="${idx}">
-        <div class="window-head">
-          <span class="window-title"><i class="fa-solid fa-window-maximize"></i> ${safe(project.project_name, 'Unnamed project')}</span>
-          <span class="window-open"><i class="fa-solid fa-up-right-from-square"></i></span>
-        </div>
-        <p class="project-summary">${safe(project.short_description)}</p>
-      </a>
-    `).join('');
+    categoryGrid.innerHTML = buildCategoryView(projects);
     attachProjectHandlers();
   }
 
@@ -178,7 +197,7 @@
     }
   }
 
-  document.querySelectorAll('.modal-close').forEach(closeBtn => {
+  document.querySelectorAll('[data-close-modal]').forEach(closeBtn => {
     closeBtn.addEventListener('click', closeModal);
   });
 
