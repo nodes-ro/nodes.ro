@@ -64,16 +64,30 @@
       "project_url": null
     },
     {
-      "category": "Ai & Automations",
+      "category": "AI & Automations",
       "project_name": "Upcoming AI Project",
       "short_description": "Stay tuned for our next wave of innovations.",
       "github_url": null,
       "project_url": null
     },
     {
-      "category": "Books",
-      "project_name": "(Add your book project)",
-      "short_description": "Placeholder entry for future books.",
+      "category": "Books & Blogs",
+      "project_name": "Our Blog",
+      "short_description": "Embark on my first blogging journey",
+      "github_url": "https://github.com/botacatalin/Blog",
+      "project_url": "https://botacatalin.github.io/Blog/"
+    },
+    {
+      "category": "Books & Blogs",
+      "project_name": "Mica carte a circuitelor",
+      "short_description": "A little book about circuits and electronics concepts for children. [in Romanian]",
+      "github_url": null,
+      "project_url": null
+    },
+    {
+      "category": "Books & Blogs",
+      "project_name": "Povestim cu calculatorul",
+      "short_description": "Short stories for children from the wonderful world of computers. [in Romanian]",
       "github_url": null,
       "project_url": null
     }
