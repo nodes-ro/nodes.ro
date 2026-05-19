@@ -5,14 +5,21 @@
       "project_name": "Time4All",
       "short_description": "Plan meetings across time zones.",
       "github_url": null,
-      "project_url": "https://time4all.eu"
+      "project_url": "https://time4all.nodes.ro"
     },
     {
       "category": "Web apps",
-      "project_name": "ReadyPlan",
-      "short_description": "Prepare and build your emergency plan.",
+      "project_name": "EduNodes",
+      "short_description": "Rediscover the joy of learning! ",
       "github_url": null,
-      "project_url": "https://readyplan.eu"
+      "project_url": "https://edu.nodes.ro"
+    },
+    {
+      "category": "Web apps",
+      "project_name": "Clock App",
+      "short_description": "An intuitive kids app for learning how to tell time.",
+      "github_url": "https://github.com/botacatalin/ClockApp",
+      "project_url": "https://botacatalin.github.io/ClockApp/"
     },
     {
       "category": "Web apps",
@@ -20,6 +27,13 @@
       "short_description": "Ignite creativity by sharing ideas.",
       "github_url": "https://github.com/nodes-ro/ideas",
       "project_url": "https://nodes-ro.github.io/ideas/"
+    },
+    {
+      "category": "Web apps",
+      "project_name": "City Temperature Tracker",
+      "short_description": "Automated weather data collection workflow built with n8n.",
+      "github_url": "https://github.com/botacatalin/city-temperature-tracker",
+      "project_url": "https://botacatalin.github.io/city-temperature-tracker/"
     },
     {
       "category": "Web apps",
