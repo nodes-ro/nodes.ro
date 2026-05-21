@@ -2,56 +2,56 @@
   "projects": [
      {
       "category": "Web apps",
-      "project_name": "EduNodes",
+      "project_name": "EduNodes - platform for learning",
       "short_description": "Rediscover the joy of learning! ",
       "github_url": null,
       "project_url": "https://edu.nodes.ro"
     },
     {
       "category": "Web apps",
-      "project_name": "Time4All",
+      "project_name": "Time4All - meetings planner",
       "short_description": "Plan meetings across time zones.",
       "github_url": null,
       "project_url": "https://time4all.nodes.ro"
     },
     {
       "category": "Web apps",
-      "project_name": "Clock App",
+      "project_name": "Clock App - learn how to tell time",
       "short_description": "An intuitive kids app for learning how to tell time.",
       "github_url": "https://github.com/botacatalin/ClockApp",
       "project_url": "https://botacatalin.github.io/ClockApp/"
     },
      {
       "category": "Web apps",
-      "project_name": "Flashcards",
+      "project_name": "Flashcards - design digital flashcards",
       "short_description": "Flashcard Builder is a two-part tool: the builder lets you design two-sided flashcards with layouts, text, and images, then exports JSON data, while the presenter loads that JSON to display the flashcards in a flip-card viewer.",
       "github_url": "https://github.com/botacatalin/Flashcards",
       "project_url": "https://botacatalin.github.io/Flashcards/frontend/builder/index.html"
     },
     {
       "category": "Web apps",
-      "project_name": "City Temperature Tracker",
+      "project_name": "City Temperature Tracker - weather data collection",
       "short_description": "Automated weather data collection workflow built with n8n.",
       "github_url": "https://github.com/botacatalin/city-temperature-tracker",
       "project_url": "https://botacatalin.github.io/city-temperature-tracker/"
     },
     {
       "category": "Web apps",
-      "project_name": "Ideas",
+      "project_name": "Ideas - platform for sharing ideas",
       "short_description": "Ignite creativity by sharing ideas.",
       "github_url": "https://github.com/nodes-ro/ideas",
       "project_url": null
     },
     {
       "category": "Web apps",
-      "project_name": "ProgramBuilder",
+      "project_name": "ProgramBuilder - creating schedules for events",
       "short_description": "Program builder for events.",
       "github_url": "https://github.com/nodes-ro/ProgramBuilder",
       "project_url": null
     },
     {
       "category": "Web apps",
-      "project_name": "Custom Lottery",
+      "project_name": "Custom Lottery - creating custom lotteries",
       "short_description": "Create your own custom lottery.",
       "github_url": null,
       "project_url": null
