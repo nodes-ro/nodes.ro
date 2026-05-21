@@ -3,13 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>nodes.ro</title>
-    <meta content="Transformam idei in software. Portofoliu apliatii." name="description">
-    <meta content="nodes.ro, software, dezvoltare, cluj, romania, aplicații, web, portofoliu" name="keywords">
+    <title>nodes.ro — Application Portfolio</title>
+    <meta content="We transform ideas into software. Explore the nodes.ro application portfolio." name="description">
+    <meta content="nodes.ro, software, development, Cluj, Romania, applications, web, portfolio" name="keywords">
     <meta content="nodes.ro" name="author">
     <meta content="index, follow" name="robots">
+    <meta content="#27445D" name="theme-color">
 
+    <link href="https://nodes.ro/" rel="canonical">
+    <link href="static/logo.png" rel="icon" type="image/png">
     <link href="static/styles.css" rel="stylesheet">
+
+    <meta property="og:title" content="nodes.ro — Application Portfolio">
+    <meta property="og:description" content="We transform ideas into software. Explore the nodes.ro application portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nodes.ro/">
+    <meta property="og:image" content="https://nodes.ro/static/logo.png">
+    <meta property="og:site_name" content="nodes.ro">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="nodes.ro — Application Portfolio">
+    <meta name="twitter:description" content="We transform ideas into software. Explore the nodes.ro application portfolio.">
+    <meta name="twitter:image" content="https://nodes.ro/static/logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "nodes.ro",
+      "url": "https://nodes.ro/",
+      "logo": "https://nodes.ro/static/logo.png",
+      "email": "nodes.ro@proton.me"
+    }
+    </script>
 
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
@@ -31,9 +57,9 @@
                         <a href="#modal" style="text-decoration:none;">
                             <span class="number"><i class="fa-solid fa-circle-nodes"></i> nodes.ro</span>
                         </a>
-                        <h2>Portfoliu Aplicații</h2>
+                        <h2>Application Portfolio</h2>
                         <p>
-                            Transformăm idei în software <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> de peste 15 de ani.
+                            We transform ideas into software <i class="fa-regular fa-lightbulb glowing-lightbulb"></i> for over 15 years.
                         </p>
                     </div>
                 </div>
@@ -66,24 +92,24 @@
             <div style="text-align:left;">
                 <section class="portfolio">
                     <header>
-                        <h3><i class="fa-solid fa-briefcase"></i> Descoperă</h3>
+                        <h3><i class="fa-solid fa-briefcase"></i> Discover</h3>
                     </header>
                     <div class="portfolio-items">
                         <div class="portfolio-item">
                             <i class="fa-solid fa-laptop-code"></i>
-                            <span><a href="https://botacatalin.github.io/Blog/" style="text-decoration:none;">Explorează Blogul Nostru</a></span>
+                            <span><a href="https://botacatalin.github.io/Blog/" style="text-decoration:none;">Explore Our Blog</a></span>
                         </div>
                         <div class="portfolio-item">
                             <i class="fas fa-hand-holding-heart"></i>
                             <span>
-                                <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">Susține Proiectele Noastre</a>
+                                <a href="https://revolut.me/catalilb7" role="button" style="text-decoration:none;">Support Our Projects</a>
                                 <small style="font-size: 0.8em; color: gray;">(via Revolut)</small>
                             </span>
                         </div>
                         <div class="portfolio-item">
                             <i class="fa-solid fa-envelope"></i>
                             <span>
-                                <a href="mailto:nodes.ro@proton.me" style="text-decoration:none;">Contactează-ne: nodes.ro@proton.me</a>
+                                <a href="mailto:nodes.ro@proton.me" style="text-decoration:none;">Contact us: nodes.ro@proton.me</a>
                             </span>
                         </div>
                     </div>
@@ -125,6 +151,11 @@
     }, {});
   }
 
+  function statusHtml(project) {
+    if (!project.status) return '';
+    return `<span class="project-status">${project.status}</span>`;
+  }
+
   function linkHtml(project) {
     const links = [];
     if (project.project_url) links.push(`<a href="${project.project_url}" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Open</a>`);
@@ -137,6 +168,7 @@
       <article class="project-card">
         <div class="project-card-top">
           <span class="project-category">${project.category}</span>
+          ${statusHtml(project)}
           <h4>${project.project_name}</h4>
         </div>
         <p>${project.short_description}</p>
