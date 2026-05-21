@@ -1,5 +1,12 @@
 {
   "projects": [
+     {
+      "category": "Web apps",
+      "project_name": "EduNodes",
+      "short_description": "Rediscover the joy of learning! ",
+      "github_url": null,
+      "project_url": "https://edu.nodes.ro"
+    },
     {
       "category": "Web apps",
       "project_name": "Time4All",
@@ -9,24 +16,17 @@
     },
     {
       "category": "Web apps",
-      "project_name": "EduNodes",
-      "short_description": "Rediscover the joy of learning! ",
-      "github_url": null,
-      "project_url": "https://edu.nodes.ro"
-    },
-    {
-      "category": "Web apps",
       "project_name": "Clock App",
       "short_description": "An intuitive kids app for learning how to tell time.",
       "github_url": "https://github.com/botacatalin/ClockApp",
       "project_url": "https://botacatalin.github.io/ClockApp/"
     },
-    {
+     {
       "category": "Web apps",
-      "project_name": "Ideas",
-      "short_description": "Ignite creativity by sharing ideas.",
-      "github_url": "https://github.com/nodes-ro/ideas",
-      "project_url": "https://nodes-ro.github.io/ideas/"
+      "project_name": "Flashcards",
+      "short_description": "Flashcard Builder is a two-part tool: the builder lets you design two-sided flashcards with layouts, text, and images, then exports JSON data, while the presenter loads that JSON to display the flashcards in a flip-card viewer.",
+      "github_url": "https://github.com/botacatalin/Flashcards",
+      "project_url": "https://botacatalin.github.io/Flashcards/frontend/builder/index.html"
     },
     {
       "category": "Web apps",
@@ -37,10 +37,17 @@
     },
     {
       "category": "Web apps",
+      "project_name": "Ideas",
+      "short_description": "Ignite creativity by sharing ideas.",
+      "github_url": "https://github.com/nodes-ro/ideas",
+      "project_url": null
+    },
+    {
+      "category": "Web apps",
       "project_name": "ProgramBuilder",
       "short_description": "Program builder for events.",
       "github_url": "https://github.com/nodes-ro/ProgramBuilder",
-      "project_url": "https://nodes-ro.github.io/ProgramBuilder/"
+      "project_url": null
     },
     {
       "category": "Web apps",
