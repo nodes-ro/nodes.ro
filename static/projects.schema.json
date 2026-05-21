@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "nodes.ro projects catalog",
+  "type": "object",
+  "required": ["projects"],
+  "properties": {
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "category",
+          "project_name",
+          "short_description",
+          "github_url",
+          "project_url"
+        ],
+        "properties": {
+          "category": {
+            "type": "string",
+            "minLength": 2
+          },
+          "project_name": {
+            "type": "string",
+            "minLength": 2
+          },
+          "short_description": {
+            "type": "string",
+            "minLength": 5
+          },
+          "github_url": {
+            "type": ["string", "null"],
+            "format": "uri"
+          },
+          "project_url": {
+            "type": ["string", "null"],
+            "format": "uri"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["live", "upcoming", "draft", "archived"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
