@@ -5,63 +5,72 @@
       "project_name": "Time4All",
       "short_description": "Plan meetings across time zones.",
       "github_url": null,
-      "project_url": "https://time4all.eu"
+      "project_url": "https://time4all.eu",
+      "status": "live"
     },
     {
       "category": "Web apps",
       "project_name": "ReadyPlan",
       "short_description": "Prepare and build your emergency plan.",
       "github_url": null,
-      "project_url": "https://readyplan.eu"
+      "project_url": "https://readyplan.eu",
+      "status": "live"
     },
     {
       "category": "Web apps",
       "project_name": "Ideas",
       "short_description": "Ignite creativity by sharing ideas.",
       "github_url": "https://github.com/nodes-ro/ideas",
-      "project_url": "https://nodes-ro.github.io/ideas/"
+      "project_url": "https://nodes-ro.github.io/ideas/",
+      "status": "live"
     },
     {
       "category": "Web apps",
       "project_name": "ProgramBuilder",
       "short_description": "Program builder for events.",
       "github_url": "https://github.com/nodes-ro/ProgramBuilder",
-      "project_url": "https://nodes-ro.github.io/ProgramBuilder/"
+      "project_url": "https://nodes-ro.github.io/ProgramBuilder/",
+      "status": "live"
     },
     {
       "category": "Web apps",
       "project_name": "Custom Lottery",
       "short_description": "Create your own custom lottery.",
       "github_url": null,
-      "project_url": null
+      "project_url": null,
+      "status": "upcoming"
     },
     {
-      "category": "Desktop app",
+      "category": "Desktop apps",
       "project_name": "Eclipse RCP Application",
       "short_description": "Desktop app showcase built with Eclipse RCP.",
       "github_url": "https://github.com/nodes-ro/nodes-rcp-desktop",
-      "project_url": "https://nodes-ro.github.io/nodes-rcp-desktop/"
+      "project_url": "https://nodes-ro.github.io/nodes-rcp-desktop/",
+      "status": "live"
     },
     {
       "category": "Embedded",
       "project_name": "Upcoming Embedded Project",
       "short_description": "Stay tuned for our next wave of innovations.",
       "github_url": null,
-      "project_url": null
+      "project_url": null,
+      "status": "upcoming"
     },
     {
-      "category": "Ai & Automations",
+      "category": "AI & Automations",
       "project_name": "Upcoming AI Project",
       "short_description": "Stay tuned for our next wave of innovations.",
       "github_url": null,
-      "project_url": null
+      "project_url": null,
+      "status": "upcoming"
     },
     {
       "category": "Books",
-      "project_name": "(Add your book project)",
+      "project_name": "Future book project",
       "short_description": "Placeholder entry for future books.",
       "github_url": null,
-      "project_url": null
+      "project_url": null,
+      "status": "draft"
     }
   ]
 }
