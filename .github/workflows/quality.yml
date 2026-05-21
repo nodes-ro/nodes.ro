@@ -1,0 +1,47 @@
+name: Quality Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate-projects:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON format
+        run: |
+          python -m json.tool static/projects.json > /dev/null
+          python -m json.tool static/projects.schema.json > /dev/null
+
+      - name: Validate required project fields
+        run: |
+          python <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('static/projects.json').read_text())
+
+          required = {
+              'category',
+              'project_name',
+              'short_description',
+              'github_url',
+              'project_url'
+          }
+
+          for idx, project in enumerate(data['projects']):
+              missing = required - project.keys()
+              if missing:
+                  raise SystemExit(f'Project #{idx} missing fields: {missing}')
+
+          print('Project catalog validation passed.')
+          PY
+
+      - name: Check index.html exists
+        run: test -f index.html
