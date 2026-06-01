@@ -95,8 +95,8 @@
       "category": "Books & Blogs",
       "project_name": "Povestim cu calculatorul",
       "short_description": "Short stories for children from the wonderful world of computers. [in Romanian]",
-      "github_url": null,
-      "project_url": null
+      "github_url": "https://codeberg.org/botacatalin/PovestimCuCalculatorul",
+      "project_url": "https://botacatalin.codeberg.page/PovestimCuCalculatorul/"
     }
   ]
 }
