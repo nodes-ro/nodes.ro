@@ -63,7 +63,7 @@
   const projectActions = project => {
     const links = [
       ['project_url', 'fa-solid fa-up-right-from-square', 'Open Project'],
-      ['github_url', 'fa-brands fa-github', 'GitHub']
+      ['github_url', 'fa-brands fa-github', 'GitRepo']
     ]
       .filter(([key]) => isSafeUrl(project[key]))
       .map(([key, icon, label]) => `
