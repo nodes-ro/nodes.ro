@@ -43,8 +43,7 @@ a {
   color: inherit;
 }
 
-button,
-label {
+button {
   font: inherit;
 }
 
@@ -116,13 +115,8 @@ label {
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg, rgba(12, 25, 36, 0.98), rgba(12, 25, 36, 0.38) 45%, transparent);
-  box-shadow: none;
   z-index: 2;
   pointer-events: none;
-}
-
-.card-back .overlay {
-  display: none;
 }
 
 .content {
@@ -154,8 +148,7 @@ label {
   font-weight: 700;
 }
 
-.content h1,
-.content h2 {
+.content h1 {
   margin: 10px 0;
   color: var(--text);
   font-size: clamp(28px, 5vw, 42px);
@@ -204,6 +197,17 @@ label {
   right: 30px;
   z-index: 20;
   pointer-events: auto;
+  width: auto;
+  min-height: 44px;
+  height: auto;
+  padding: 13px 18px;
+  gap: 10px;
+  border-radius: 10px;
+  background: #88c9bf;
+  color: #102c32;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .button:hover,
@@ -217,11 +221,11 @@ label {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 14px;
+  padding: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   overflow: auto;
 }
@@ -247,7 +251,8 @@ label {
   border-radius: 999px;
   padding: 6px 12px;
   color: var(--text);
-  font-size: 0.85rem;
+  border-color: var(--border);
+  font: 12px var(--body-font);
 }
 
 .window-toolbar {
@@ -257,8 +262,9 @@ label {
   border: 1px solid rgba(113, 187, 178, 0.3);
   border-radius: 8px;
   padding: 8px 10px;
-  background: rgba(0, 0, 0, 0.38);
+  background: rgba(0, 0, 0, 0.16);
   color: var(--text);
+  border-color: var(--border);
 }
 
 .dot {
@@ -285,6 +291,8 @@ label {
   margin-left: 4px;
   font-size: 0.8rem;
   opacity: 0.85;
+  font-family: var(--body-font);
+  letter-spacing: 0.04em;
 }
 
 .category-grid {
@@ -351,7 +359,6 @@ label {
   flex: 1 1 auto;
   min-height: 0;
 
-  scrollbar-gutter: stable;
 }
 
 .project-links li {
@@ -369,6 +376,8 @@ label {
   text-decoration: none;
   font-size: 0.86rem;
   transition: color 0.2s ease, transform 0.2s ease;
+  font-family: var(--body-font);
+  line-height: 1.45;
 }
 
 .project-link:hover,
@@ -430,6 +439,8 @@ label {
 .portfolio h3 {
   margin: 0 0 16px;
   color: #27445D;
+  padding-right: 30px;
+  line-height: 1.5;
 }
 
 .portfolio-items {
@@ -462,11 +473,11 @@ label {
 .project-detail-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
   background: #f8fbfd;
   border: 1px solid #dce7ef;
   border-radius: 12px;
-  padding: 16px;
+  padding: 24px;
 }
 
 .project-detail-card h4 {
@@ -474,13 +485,15 @@ label {
   color: #27445D;
   font-size: 1.2rem;
   font-weight: 600;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
 }
 
 .project-detail-card p {
   margin: 0;
   color: #27445D;
   font-family: var(--body-font);
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .project-detail-card a {
@@ -525,15 +538,6 @@ label {
   grid-column: 1 / -1;
 }
 
-.project-links::-webkit-scrollbar {
-  width: 6px;
-}
-
-.project-links::-webkit-scrollbar-thumb {
-  background: rgba(113, 187, 178, 0.35);
-  border-radius: 10px;
-}
-
 .projects-overview::-webkit-scrollbar,
 .category-grid::-webkit-scrollbar,
 .modal-content::-webkit-scrollbar {
@@ -559,11 +563,11 @@ img {
 
   .container {
     align-items: flex-start;
-    padding: 16px;
+    padding: 12px;
   }
 
   .card-wrapper {
-    width: 94vw;
+    width: 100%;
     height: 78vh;
     min-height: 560px;
   }
@@ -580,8 +584,6 @@ img {
   }
 
   .button {
-    width: 42px;
-    height: 42px;
     right: 22px;
     bottom: 28px;
   }
@@ -593,6 +595,23 @@ img {
   .overview-header {
     align-items: flex-start;
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .projects-overview {
+    padding: 14px;
+  }
+
+  .overview-header h3 {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 28px 20px;
+  }
+
+  .project-detail-card {
+    padding: 18px;
   }
 }
 
@@ -619,42 +638,24 @@ img {
     animation-iteration-count: 1 !important;
   }
 }
-/* Shared interaction details keep the original card visual language. */
 
-.button {
-  width: auto;
-  min-height: 44px;
-  height: auto;
-  padding: 13px 18px;
-  gap: 10px;
-  border-radius: 10px;
-  background: #88c9bf;
-  color: #102c32;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
-  font-size: 12px;
-  font-weight: 600;
+.button-caption {
+  white-space: nowrap;
 }
-.button-caption { white-space: nowrap; }
-.projects-overview { padding: 20px; gap: 16px; }
-.overview-pill { border-color: var(--border); font: 12px var(--body-font); }
-.window-toolbar { border-color: var(--border); background: rgba(0, 0, 0, 0.16); }
-.toolbar-title { font-family: var(--body-font); letter-spacing: 0.04em; }
-.project-link { font-family: var(--body-font); line-height: 1.45; }
-.project-link i { color: var(--accent); font-size: 11px; }
-.project-link:hover { background: rgba(113, 187, 178, 0.08); text-decoration: none; }
-.portfolio h3 { padding-right: 30px; line-height: 1.5; }
-.project-detail-card { padding: 24px; gap: 16px; }
-.project-detail-card h4 { overflow-wrap: anywhere; line-height: 1.4; }
-.project-detail-card p { line-height: 1.7; }
-:focus-visible { outline: 2px solid #71bbb2; outline-offset: 4px; }
-@media (max-width: 768px) {
-  .container { padding: 12px; }
-  .card-wrapper { width: 100%; }
-  .projects-overview { padding: 14px; }
-  .overview-header { gap: 10px; }
-  .overview-header h3 { font-size: 1rem; }
-  .modal-content { padding: 28px 20px; }
-  .project-detail-card { padding: 18px; }
+
+.project-link i {
+  color: var(--accent);
+  font-size: 11px;
+}
+
+.project-link:hover {
+  background: rgba(113, 187, 178, 0.08);
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid #71bbb2;
+  outline-offset: 4px;
 }
 
 /* Only the visible face participates in hit testing, including its controls. */
