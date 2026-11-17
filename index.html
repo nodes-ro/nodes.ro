@@ -9,7 +9,7 @@
   <meta name="keywords" content="nodes.ro, software, development, Cluj, Romania, applications, web, portfolio" />
   <meta name="author" content="nodes.ro" />
   <meta name="robots" content="index, follow" />
-
+with
   <meta property="og:title" content="nodes.ro — Application Portfolio" />
   <meta property="og:description" content="We have been transforming ideas into software for over 15 years." />
   <meta property="og:type" content="website" />
@@ -40,16 +40,17 @@
 
 <body>
   <main class="container">
-    <input id="flip-toggle" type="checkbox" aria-hidden="true" />
+    <input id="flip-toggle" type="checkbox" aria-hidden="true" tabindex="-1" />
 
     <div class="card-wrapper">
       <section class="card" aria-label="nodes.ro portfolio card">
         <div class="card-front">
           <div class="overlay"></div>
 
-          <label class="button" for="flip-toggle" aria-label="Open project list">
+          <button class="button" type="button" data-flip-card aria-label="Open project list">
             <i class="fa-solid fa-repeat" aria-hidden="true"></i>
-          </label>
+            <span class="button-caption">Explore projects</span>
+          </button>
 
           <div class="content">
             <a href="#about" class="brand-link" data-open-modal="about">
@@ -70,9 +71,10 @@
         </div>
 
         <div class="card-back">
-          <label class="button" for="flip-toggle" aria-label="Back to cover">
+          <button class="button" type="button" data-flip-card aria-label="Back to cover">
             <i class="fa-solid fa-repeat" aria-hidden="true"></i>
-          </label>
+            <span class="button-caption">Back to cover</span>
+          </button>
 
           <div class="content content-wide">
             <section class="projects-overview" aria-label="Project Explorer">

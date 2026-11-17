@@ -26,7 +26,7 @@
       "project_name": "Web2Pico",
       "short_description": "Embedded development for Raspberry Pi Pico using MicroPython and the Web Serial API.",
       "github_url": "https://codeberg.org/botacatalin/web2pico/src/branch/main",
-      "project_url": "https://web2pico.nodes.ro"
+      "project_url": null
     },
     {
       "category": "Desktop app",

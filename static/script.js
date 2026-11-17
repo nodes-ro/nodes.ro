@@ -11,6 +11,22 @@
     aboutLink: $('[data-open-modal="about"]')
   };
 
+  const flipToggle = $('#flip-toggle');
+  const front = $('.card-front');
+  const back = $('.card-back');
+  const syncCard = () => {
+    front.inert = flipToggle.checked;
+    back.inert = !flipToggle.checked;
+  };
+  syncCard();
+  $$('[data-flip-card]').forEach(button => {
+    button.addEventListener('click', () => {
+      flipToggle.checked = !flipToggle.checked;
+      syncCard();
+      $('[data-flip-card]', flipToggle.checked ? back : front)?.focus();
+    });
+  });
+
   let projects = [];
   let lastFocusedElement = null;
 
@@ -63,7 +79,7 @@
   const projectActions = project => {
     const links = [
       ['project_url', 'fa-solid fa-up-right-from-square', 'Open Project'],
-      ['github_url', 'fa-brands fa-github', 'GitRepo']
+      ['github_url', 'fa-brands fa-github', 'Source code']
     ]
       .filter(([key]) => isSafeUrl(project[key]))
       .map(([key, icon, label]) => `
@@ -213,6 +229,19 @@
   });
 
   document.addEventListener('keydown', event => {
+    const modal = $('.modal.is-open');
+    if (event.key === 'Tab' && modal) {
+      const focusable = $$('a[href], button:not([disabled])', modal);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    }
     if (event.key === 'Escape') {
       closeModals(event);
     }
