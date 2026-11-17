@@ -15,6 +15,7 @@
   const front = $('.card-front');
   const back = $('.card-back');
   const syncCard = () => {
+    if (flipToggle.checked) back.classList.add('is-loaded');
     front.inert = flipToggle.checked;
     back.inert = !flipToggle.checked;
   };
@@ -170,7 +171,7 @@
 
   const loadProjects = async () => {
     try {
-      const response = await fetch('static/projects.json', { cache: 'no-store' });
+      const response = await fetch('static/projects.json');
 
       if (!response.ok) {
         throw new Error('Unable to load static/projects.json');

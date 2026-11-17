@@ -16,25 +16,28 @@
 
   <link rel="icon" type="image/png" href="static/logo.png" />
 
-  <link rel="preload" as="image" href="static/bg.png" fetchpriority="high" />
-  <link rel="preload" as="image" href="static/bg_back.png" />
-  <link rel="preload" as="image" href="static/bg.jpg" />
-  <link rel="preload" as="image" href="static/logo.png" />
+  <link rel="preload" as="image" type="image/webp" href="static/bg.webp" fetchpriority="high" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    rel="stylesheet"
-  />
-
+  <!-- Render immediately with fallback fonts while optional fonts and icons load. -->
   <link rel="stylesheet" href="static/style.css" />
+  <link
+    rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Roboto:wght@400;500&amp;display=swap"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <link
+    rel="preload" as="style"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Roboto:wght@400;500&amp;display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </noscript>
+
 </head>
 
 <body>

@@ -29,16 +29,6 @@ body {
   font-family: var(--heading-font);
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url('bg.jpg');
-  background-repeat: repeat;
-  opacity: 0.035;
-  pointer-events: none;
-}
-
 a {
   color: inherit;
 }
@@ -100,12 +90,17 @@ button {
 }
 
 .card-front {
-  background: url('bg.png') center / cover no-repeat;
+  background: url('bg.webp') center / cover no-repeat;
 }
 
 .card-back {
-  background: url('bg_back.png') center / cover no-repeat;
+  background: var(--bg);
   transform: rotateY(180deg);
+}
+
+/* Keep the hidden artwork off the initial network path; retain it after opening. */
+.card-back.is-loaded {
+  background: url('bg_back.webp') center / cover no-repeat;
 }
 
 .card .overlay {
@@ -664,4 +659,10 @@ img {
 .card-front[inert] *,
 .card-back[inert] * {
   pointer-events: none;
+}
+
+/* Reserve icon space while the optional icon font loads. */
+.fa-solid, .fa-regular, .fa-brands, .fas {
+  display: inline-block;
+  min-width: 1em;
 }
