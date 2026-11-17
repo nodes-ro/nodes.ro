@@ -1,102 +1,109 @@
 {
   "projects": [
-     {
+    {
       "category": "Web apps",
-      "project_name": "EduNodes - platform for learning",
-      "short_description": "Rediscover the joy of learning! ",
+      "project_name": "edu.nodes.ro",
+      "short_description": "Learning resources and interactive activities for teachers, parents, and curious learners. Built with Python, Flask, React, Tailwind CSS, and Docker.",
       "github_url": null,
       "project_url": "https://edu.nodes.ro"
     },
     {
       "category": "Web apps",
-      "project_name": "Time4All - meetings planner",
-      "short_description": "Plan meetings across time zones.",
+      "project_name": "glowgrid.nodes.ro",
+      "short_description": "Build interactive hardware projects: set up a board, explore programs, and bring ideas to life. Built with Python, Flask, SQLite, and Docker.",
       "github_url": null,
-      "project_url": "https://time4all.nodes.ro"
-    },
-    {
-      "category": "Web apps",
-      "project_name": "Clock App - learn how to tell time",
-      "short_description": "An intuitive kids app for learning how to tell time.",
-      "github_url": "https://github.com/botacatalin/ClockApp",
-      "project_url": "https://botacatalin.github.io/ClockApp/"
-    },
-     {
-      "category": "Web apps",
-      "project_name": "Flashcards - design digital flashcards",
-      "short_description": "Flashcard Builder is a two-part tool: the builder lets you design two-sided flashcards with layouts, text, and images, then exports JSON data, while the presenter loads that JSON to display the flashcards in a flip-card viewer.",
-      "github_url": "https://github.com/botacatalin/Flashcards",
-      "project_url": "https://botacatalin.github.io/Flashcards/frontend/builder/index.html"
-    },
-    {
-      "category": "Web apps",
-      "project_name": "City Temperature Tracker - weather data collection",
-      "short_description": "Automated weather data collection workflow built with n8n.",
-      "github_url": "https://github.com/botacatalin/city-temperature-tracker",
-      "project_url": "https://botacatalin.github.io/city-temperature-tracker/"
-    },
-    {
-      "category": "Web apps",
-      "project_name": "Ideas - platform for sharing ideas",
-      "short_description": "Ignite creativity by sharing ideas.",
-      "github_url": "https://github.com/nodes-ro/ideas",
-      "project_url": null
-    },
-    {
-      "category": "Web apps",
-      "project_name": "ProgramBuilder - creating schedules for events",
-      "short_description": "Program builder for events.",
-      "github_url": "https://github.com/nodes-ro/ProgramBuilder",
-      "project_url": null
-    },
-    {
-      "category": "Web apps",
-      "project_name": "Custom Lottery - creating custom lotteries",
-      "short_description": "Create your own custom lottery.",
-      "github_url": null,
-      "project_url": null
-    },
-    {
-      "category": "Desktop app",
-      "project_name": "Eclipse RCP Application",
-      "short_description": "Desktop app showcase built with Eclipse RCP.",
-      "github_url": "https://github.com/nodes-ro/nodes-rcp-desktop",
-      "project_url": "https://nodes-ro.github.io/nodes-rcp-desktop/"
+      "project_url": "https://glowgrid.nodes.ro"
     },
     {
       "category": "Embedded",
-      "project_name": "Upcoming Embedded Project",
-      "short_description": "Stay tuned for our next wave of innovations.",
-      "github_url": null,
+      "project_name": "WiFi Pico 2",
+      "short_description": "IoT and embedded development for Raspberry Pi Pico microcontrollers using MicroPython.",
+      "github_url": "https://github.com/botacatalin/wifi_pico2",
       "project_url": null
     },
     {
-      "category": "AI & Automations",
-      "project_name": "Upcoming AI Project",
-      "short_description": "Stay tuned for our next wave of innovations.",
-      "github_url": null,
+      "category": "Embedded",
+      "project_name": "Web2Pico",
+      "short_description": "Embedded development for Raspberry Pi Pico using MicroPython and the Web Serial API.",
+      "github_url": "https://codeberg.org/botacatalin/web2pico/src/branch/main",
+      "project_url": "https://web2pico.nodes.ro"
+    },
+    {
+      "category": "Desktop app",
+      "project_name": "RCP Desktop Apps",
+      "short_description": "An Eclipse RCP template for modular, cross-platform desktop applications built with Java.",
+      "github_url": "https://github.com/nodes-ro/nodes-rcp-desktop",
       "project_url": null
     },
     {
-      "category": "Books & Blogs",
-      "project_name": "Our Blog",
-      "short_description": "Embark on my first blogging journey",
+      "category": "AI & Automation",
+      "project_name": "OpenCode AI Environment",
+      "short_description": "Explore AI agents and automation workflows for AI-assisted applications and software development with OpenRouter and OpenCode.",
+      "github_url": "https://github.com/botacatalin/opencode-ai-env",
+      "project_url": null
+    },
+    {
+      "category": "Books & Blog",
+      "project_name": "Povestim cu calculatorul",
+      "short_description": "A Romanian children’s book exploring the world of computers.",
+      "github_url": "https://codeberg.org/botacatalin/PovestimCuCalculatorul",
+      "project_url": "https://botacatalin.codeberg.page/PovestimCuCalculatorul/"
+    },
+    {
+      "category": "Books & Blog",
+      "project_name": "Micii ingineri",
+      "short_description": "O Introducere in lumea electronicii — a Romanian children’s book introducing electronics.",
+      "github_url": "https://codeberg.org/botacatalin/MiciiIngineri",
+      "project_url": "https://botacatalin.codeberg.page/MiciiIngineri/"
+    },
+    {
+      "category": "Books & Blog",
+      "project_name": "Blog",
+      "short_description": "Tutorials, research, and software development articles.",
       "github_url": "https://github.com/botacatalin/Blog",
       "project_url": "https://botacatalin.github.io/Blog/"
     },
     {
-      "category": "Books & Blogs",
-      "project_name": "Mica carte a circuitelor",
-      "short_description": "A little book about circuits and electronics concepts for children. [in Romanian]",
-      "github_url": null,
+      "category": "Other Projects & Ideas",
+      "project_name": "Clock App",
+      "short_description": "An interactive app helping children learn how to tell time.",
+      "github_url": "https://github.com/botacatalin/ClockApp",
+      "project_url": "https://botacatalin.github.io/ClockApp/"
+    },
+    {
+      "category": "Other Projects & Ideas",
+      "project_name": "Flashcards",
+      "short_description": "Design two-sided digital flashcards with text, images, and layouts, then present them in a flip-card viewer.",
+      "github_url": "https://github.com/botacatalin/Flashcards",
+      "project_url": "https://botacatalin.github.io/Flashcards/frontend/builder/index.html"
+    },
+    {
+      "category": "Other Projects & Ideas",
+      "project_name": "City Temperature Tracker",
+      "short_description": "An automated weather data collection workflow built with n8n.",
+      "github_url": "https://github.com/botacatalin/city-temperature-tracker",
+      "project_url": "https://botacatalin.github.io/city-temperature-tracker/"
+    },
+    {
+      "category": "Other Projects & Ideas",
+      "project_name": "Ideas",
+      "short_description": "A platform idea for sharing ideas and inspiring creativity.",
+      "github_url": "https://github.com/nodes-ro/ideas",
       "project_url": null
     },
     {
-      "category": "Books & Blogs",
-      "project_name": "Povestim cu calculatorul",
-      "short_description": "Short stories for children from the wonderful world of computers. [in Romanian]",
-      "github_url": "https://codeberg.org/botacatalin/PovestimCuCalculatorul",
-      "project_url": "https://botacatalin.codeberg.page/PovestimCuCalculatorul/"
+      "category": "Other Projects & Ideas",
+      "project_name": "ProgramBuilder",
+      "short_description": "A tool for creating schedules and programs for events.",
+      "github_url": "https://github.com/nodes-ro/ProgramBuilder",
+      "project_url": null
+    },
+    {
+      "category": "Other Projects & Ideas",
+      "project_name": "Custom Lottery",
+      "short_description": "An idea for creating custom lotteries.",
+      "github_url": null,
+      "project_url": null
     }
   ]
 }
