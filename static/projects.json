@@ -15,6 +15,13 @@
       "project_url": "https://glowgrid.nodes.ro"
     },
     {
+      "category": "Web apps",
+      "project_name": "time4all.nodes.ro",
+      "short_description": "Coordinate meetings and events across time zones: share proposed times, collect availability, and find a time that works for everyone.",
+      "github_url": null,
+      "project_url": "https://time4all.nodes.ro"
+    },
+    {
       "category": "Embedded",
       "project_name": "WiFi Pico 2",
       "short_description": "IoT and embedded development for Raspberry Pi Pico microcontrollers using MicroPython.",

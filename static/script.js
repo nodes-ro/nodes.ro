@@ -133,8 +133,7 @@
         </span>
 
         <span class="window-open">
-          <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
-          ${group.length}
+          ${group.length} ${group.length === 1 ? 'project' : 'projects'}
         </span>
       </div>
 
@@ -157,7 +156,7 @@
   `).join('');
 
   const renderOverview = items => {
-    els.total.textContent = `${items.length} projects`;
+    els.total.textContent = `${items.length} ${items.length === 1 ? 'project' : 'projects'}`;
 
     els.grid.innerHTML = items.length
       ? renderCategories(items)
